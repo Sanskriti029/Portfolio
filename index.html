@@ -1,165 +1,155 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sanskriti</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body class="bg-white max-h-2">
-    <nav class="flex">
-      <ul class="flex flex-row gap-8 items-end justify-end m-10">
-        <li>Sans<span class="text-[#ff793f] text-md">kriti</span></li>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#Certifications">Certifications</a></li>
-        <li><a href="#Projects">Work</a></li>
-        <li><a href="#Experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <button
-          @click="dark=!dark"
-          class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"
-          :aria-label="dark?'Light mode':'Dark mode'"
-        >
-          <svg
-            x-show="!dark"
-            class="w-4 h-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
-            />
-          </svg>
-          <svg
-            x-show="dark"
-            class="w-4 h-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"
-            />
-          </svg>
-        </button>
-        <a
-          href="#contact"
-          class="md:inline-flex items-center gap-2 shimmer bg-[#ff793f] text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-[#ff793f] transition-colors"
-          >Hire me
-          <svg
-            class="w-3.5 h-3.5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            />
-            Hire me
-          </svg>
-        </a>
-      </ul>
-    </nav>
-    <section id="main" class="bg-gray-200 m-10 p-2">
-      <p
-        class="reveal text-sm font-medium text-[#ff793f] tracking-widest uppercase mb-4"
-      >
-        Available for work
-      </p>
-      <h1 class="text-5xl">
-        Hi, I'm <span class="text-[#ff793f]">Sanskriti</span>
-      </h1>
-      <p>
-        Freelance UI/UX Designer & Frontend Developer. I design and build
-        digital products that people love to use — fast, clean, and accessible.
-      </p>
-      <button class="rounded-full bg-white border-2 m-2 p-3">
-        <a href="#Work"> View My Work</a>
-      </button>
-      <button class="rounded-full border-2 m-2 p-3">
-        <a href="#contact">Get In Touch</a>
-      </button>
-    </section>
 
-    <!-- Services Section -->
-    <section id="services" class="bg-gray-200 m-10 p-2">
-      <p>this is the services section</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanskriti</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    @keyframes fillBar {
+      from {
+        transform: scaleX(0);
+      }
 
-      <p class="text-lg font-semibold text-[#ff793f]">What I do</p>
-      <div class="grid grid-cols-3 gap-8">
+      to {
+        transform: scaleX(1);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-white max-h-2">
+  <nav class="flex">
+    <ul class="flex flex-row gap-8 items-end justify-end m-10">
+      <li>Sans<span class="text-[#ff793f] text-md">kriti</span></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#Skills">Skills</a></li>
+      <li><a href="#Certifications">Certifications</a></li>
+      <li><a href="#Projects">Work</a></li>
+      <li><a href="#Experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <button @click="dark=!dark"
+        class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"
+        :aria-label="dark?'Light mode':'Dark mode'">
+        <svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+        </svg>
+        <svg x-show="dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+        </svg>
+      </button>
+      <a href="#contact"
+        class="md:inline-flex items-center gap-2 shimmer bg-[#ff793f] text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-[#ff793f] transition-colors">Hire
+        me
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          Hire me
+        </svg>
+      </a>
+    </ul>
+  </nav>
+  <section id="home" class="bg-gray-200 m-10 p-2">
+    <p class="reveal text-sm font-medium text-[#ff793f] tracking-widest uppercase mb-4">
+      Available for work
+    </p>
+    <h1 class="text-5xl">
+      Hi, I'm <span class="text-[#ff793f]">Sanskriti</span>
+    </h1>
+    <p>
+      Freelance UI/UX Designer & Frontend Developer. I design and build
+      digital products that people love to use — fast, clean, and accessible.
+    </p>
+    <button class="rounded-full bg-white border-2 m-2 p-3">
+      <a href="#Work"> View My Work</a>
+    </button>
+    <button class="rounded-full border-2 m-2 p-3">
+      <a href="#contact">Get In Touch</a>
+    </button>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="bg-gray-200 m-10 p-2">
+    <p>this is the services section</p>
+
+    <p class="text-lg font-semibold text-[#ff793f]">What I do</p>
+    <div class="grid grid-cols-3 gap-8">
       <div class="bg-white p-6 rounded-lg shadow-md">
-        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" class="w-8 h-8 md:w-12 md:h-12" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path></svg>
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512"
+          class="w-8 h-8 md:w-12 md:h-12" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z">
+          </path>
+        </svg>
         <h2 class="text-lg font-bold ">Frontend Development</h2>
-        <p>Production-grade code with Tailwind CSS and React.js. Pixel-perfect, fully responsive, SEO-friendly and blazing fast — no bloat, no heavy frameworks.</p>
-    </div>
+        <p>Production-grade code with Tailwind CSS and React.js. Pixel-perfect, fully responsive, SEO-friendly and
+          blazing fast — no bloat, no heavy frameworks.</p>
+      </div>
 
       <div class="bg-white p-6 rounded-lg shadow-md">
-        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" class="w-8 h-8 md:w-12 md:h-12" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M208 0c-29.9 0-54.7 20.5-61.8 48.2-.8 0-1.4-.2-2.2-.2-35.3 0-64 28.7-64 64 0 4.8.6 9.5 1.7 14C52.5 138 32 166.6 32 200c0 12.6 3.2 24.3 8.3 34.9C16.3 248.7 0 274.3 0 304c0 33.3 20.4 61.9 49.4 73.9-.9 4.6-1.4 9.3-1.4 14.1 0 39.8 32.2 72 72 72 4.1 0 8.1-.5 12-1.2 9.6 28.5 36.2 49.2 68 49.2 39.8 0 72-32.2 72-72V64c0-35.3-28.7-64-64-64zm368 304c0-29.7-16.3-55.3-40.3-69.1 5.2-10.6 8.3-22.3 8.3-34.9 0-33.4-20.5-62-49.7-74 1-4.5 1.7-9.2 1.7-14 0-35.3-28.7-64-64-64-.8 0-1.5.2-2.2.2C422.7 20.5 397.9 0 368 0c-35.3 0-64 28.6-64 64v376c0 39.8 32.2 72 72 72 31.8 0 58.4-20.7 68-49.2 3.9.7 7.9 1.2 12 1.2 39.8 0 72-32.2 72-72 0-4.8-.5-9.5-1.4-14.1 29-12 49.4-40.6 49.4-73.9z"></path>
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512"
+          class="w-8 h-8 md:w-12 md:h-12" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M208 0c-29.9 0-54.7 20.5-61.8 48.2-.8 0-1.4-.2-2.2-.2-35.3 0-64 28.7-64 64 0 4.8.6 9.5 1.7 14C52.5 138 32 166.6 32 200c0 12.6 3.2 24.3 8.3 34.9C16.3 248.7 0 274.3 0 304c0 33.3 20.4 61.9 49.4 73.9-.9 4.6-1.4 9.3-1.4 14.1 0 39.8 32.2 72 72 72 4.1 0 8.1-.5 12-1.2 9.6 28.5 36.2 49.2 68 49.2 39.8 0 72-32.2 72-72V64c0-35.3-28.7-64-64-64zm368 304c0-29.7-16.3-55.3-40.3-69.1 5.2-10.6 8.3-22.3 8.3-34.9 0-33.4-20.5-62-49.7-74 1-4.5 1.7-9.2 1.7-14 0-35.3-28.7-64-64-64-.8 0-1.5.2-2.2.2C422.7 20.5 397.9 0 368 0c-35.3 0-64 28.6-64 64v376c0 39.8 32.2 72 72 72 31.8 0 58.4-20.7 68-49.2 3.9.7 7.9 1.2 12 1.2 39.8 0 72-32.2 72-72 0-4.8-.5-9.5-1.4-14.1 29-12 49.4-40.6 49.4-73.9z">
+          </path>
         </svg>
         <h2 class="text-lg font-bold ">Machine Learning</h2>
         <p>Building intelligent systems that can learn and adapt to new information.</p>
-      </div>  
+      </div>
 
 
       <div class="bg-white p-6 rounded-lg shadow-md">
-       <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 352 512" class="w-8 h-8 md:w-12 md:h-12" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"></path></svg> 
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 352 512"
+          class="w-8 h-8 md:w-12 md:h-12" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z">
+          </path>
+        </svg>
         <h2 class="text-lg font-bold ">Open Source</h2>
         <p>Contributing to and maintaining open-source projects that benefit the community. Contributer in GSSOC'26</p>
       </div>
-      </div>
-    </section>
-<!-- Certifications Section -->
-    <section id="Certifications" class="bg-gray-200 m-10 p-2">
-      <div class="grid grid-cols-4 gap-8">
-         <div class="bg-white p-6 rounded-lg shadow-md">
+    </div>
+  </section>
+  <!-- Certifications Section -->
+  <section id="Certifications" class="bg-gray-200 m-10 p-2">
+    <div class="grid grid-cols-4 gap-8">
+      <div class="bg-white p-6 rounded-lg shadow-md">
         <div id="image" class="">
           <img src="/" alt="">
 
-            <p>Certification 1</p>
-         </div>
-         <div class="bg-white p-6 rounded-lg shadow-md">
-            <p>Certification 2</p>
-         </div>
-         <div class="bg-white p-6 rounded-lg shadow-md">
-            <p>Certification 3</p>
-         </div>
-         <div class="bg-white p-6 rounded-lg shadow-md">
-            <p>Certification 4</p>
-         </div>
+          <p>Certification 1</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <p>Certification 2</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <p>Certification 3</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <p>Certification 4</p>
+        </div>
       </div>
 
 
-    </section>
-    <!-- Projects Section -->
-    <section id="Projects" class="bg-gray-200 m-10 p-2">
-
-      <div class="bg-gray-300 p-6 rounded-lg shadow-md">
-        <h1 class="text-lg font-extrabold m-4p-4 item center">Projects</h1>
-        <div class="grid grid-cols-3 gap-8">
-         <div class="bg-white p-6 rounded-lg shadow-md">
+  </section>
+  <!-- Projects Section -->
+  <section id="Projects" class="bg-gray-200 m-10 p-2">
+    <h1 class="text-lg font-extrabold m-4p-4 item center">Projects</h1>
+    <div class="grid grid-cols-3 gap-8">
+      <!-- project1 -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
         <h2 class="text-lg font-bold ">AWARE– AI Waste Classification System</h2>
         <div class="flex flex-wrap gap-4 mt-4">
-        <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">Python</span>
-        <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">Flask</span>
-        <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">Machine Learning</span>
-        <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">MySQL</span>
-        <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">Html</span>
-        <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">CSS</span>
-        <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">JavaScript</span>
+          <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">Python</span>
+          <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">Flask</span>
+          <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">Machine Learning</span>
+          <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">MySQL</span>
+          <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">Html</span>
+          <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">CSS</span>
+          <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">JavaScript</span>
         </div>
         <h3 class="font-bold text-lg p-4 mt-2">Project Description</h3>
         <ul class="list-disc">
@@ -168,33 +158,310 @@
           <li>Designed scalable backend architecture with structured data storage using MySQL.</li>
           <li> Generated automated sustainability recommendations based on classification results.</li>
         </ul>
- </div>
- <!--project2-->
-         <div class="bg-white p-6 rounded-lg shadow-md">
+      </div>
+      <!--project2-->
+      <div class="bg-white p-6 rounded-lg shadow-md">
         <h2 class="text-lg font-bold ">CineScope– Movie Discovery Platform</h2>
         <div class="flex flex-wrap gap-4 mt-4">
-        <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">React</span>
-        <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">Tailwind CSS</span>
-        <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400"> APIs</span>
+          <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">React</span>
+          <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">Tailwind CSS</span>
+          <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400"> APIs</span>
         </div>
         <h3 class="font-bold text-lg p-4 mt-2">Project Description</h3>
         <ul class="list-disc">
           <li> Built a responsive movie discovery platform consuming external APIs for dynamic content.</li>
           <li>Implemented search and personalized watchlist features to enhance user experience.</li>
           <li>Optimized component architecture and routing for efficient rendering.</li>
-       
-        </ul>
- </div>
-      
-        </div>
-    </section>
-    <section id="Experience" class="bg-gray-200 m-10 p-2">
-      <p>This is the experience section.</p>
-    </section>
-    <section id="contact" class="bg-gray-200 m-10 p-2">
-      <p>This is the contact section.</p>
-      </div>
-    </section>
 
-  </body>
+        </ul>
+      </div>
+      <!-- project 3 -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-lg font-bold ">To-do-list</h2>
+        <div class="flex flex-wrap gap-4 mt-4">
+          <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">React</span>
+          <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">Tailwind CSS</span>
+          <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400"> APIs</span>
+        </div>
+        <h3 class="font-bold text-lg p-4 mt-2">Project Description</h3>
+        <ul class="list-disc">
+          <li> Built a responsive to-do list application with task management and organization features.</li>
+          <li>Implemented user authentication and data persistence for a seamless experience.</li>
+          <li>Optimized component architecture and routing for efficient rendering.</li>
+
+
+        </ul>
+      </div>
+      <!-- project 4 -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-lg font-bold ">Project-Ecommerce-System</h2>
+        <div class="flex flex-wrap gap-4 mt-4">
+          <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">Java</span>
+
+        </div>
+        <h3 class="font-bold text-lg p-4 mt-2">Project Description</h3>
+        <ul class="list-disc">
+          <li>Built a responsive e-commerce system with product management and shopping cart features.</li>
+          <li>Implemented user authentication and payment integration for a seamless experience.</li>
+          <li>Optimized component architecture and routing for efficient rendering.</li>
+        </ul>
+      </div>
+      <!-- project 5 -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-lg font-bold ">CGPA Analyzer</h2>
+        <div class="flex flex-wrap gap-4 mt-4">
+          <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">JavaScript</span>
+          <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">PHP</span>
+
+        </div>
+        <h3 class="font-bold text-lg p-4 mt-2">Project Description</h3>
+        <ul class="list-disc">
+          <li> Built a responsive CGPA analyzer with grade calculation and visualization features.</li>
+          <li>Provided actionable insights to improve semester-wise outcomes.</li>
+          <li>Developed a web-based tool for tracking and analyzing academic performance.</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+  </section>
+
+  <section id="Experience" class="bg-gray-200 m-10 p-2">
+    <h1 class="text-lg font-extrabold m-4p-4 item center">Experience</h1>
+    <div>
+      <div>
+        <h1>
+          Frontend Development Intern
+        </h1>
+        <p>
+          Cognifyz Technologies
+        </p>
+        <p>
+          March 2026– April 2026
+        </p>
+        <ul class="list-disc">
+          <li>Working on responsive and user-friendly web interfaces using modern frontend technologies</li>
+          <li>Collaborating on real-world web development projects involving interactive UI components</li>
+          <li>Contributing to frontend optimization, layout responsiveness, and improved user experience</li>
+          <li>Gaining hands-on experience in professional software development workflows and team collaboration</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h1>
+        Open Source Contributor
+      </h1>
+      <p>
+        GirlScript Summer of Code (GSSoC)
+      </p>
+      <p>
+        May 2026- Present
+      </p>
+      <ul class="list-disc">
+        <li>Contributed to open-source projects by developing features, fixing bugs, and improving project functionality
+        </li>
+        <li>Collaborated with mentors and contributors using Git, GitHub, and version control workflows</li>
+        <li>Enhanced code quality through debugging, documentation improvements, and issue resolution</li>
+        <li>Strengthened understanding of collaborative software development and open-source contribution practices</li>
+      </ul>
+    </div>
+  </section>
+  <section id="skills" class="bg-gray-200 m-10 p-2">
+    <h1 class="text-lg font-extrabold m-4p-4 item center">My Skills</h1>
+
+    <div class="font-bold text-lg mb-8 align-center gap-4  bg-blue-500">
+      <h3 class="font-bold text-lg mb-8 align-center gap-4 ">
+        <span>💻</span>Programming Languages
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 ">
+
+        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
+          <span>🌐</span>
+          <div>C++</div>
+          <div>Advanced</div>
+          <div id="progress-bar" class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
+            <div
+              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
+            </div>
+          </div>
+        </div>
+        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
+          <span>⚡</span>
+          <div>JavaScript</div>
+          <div>Advanced</div>
+          <div id="progress-bar" class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
+            <div
+              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
+            </div>
+          </div>
+    </div>
+        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
+          <span>🐍</span>
+          <div>Python</div>
+          <div>Intermediate</div>
+          <div id="progress-bar" class="w-[70%] h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
+            <div
+              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
+            </div>
+          </div>
+        </div>
+        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
+          <span>☕</span>
+          <div>
+            <div>Java</div>
+            <div>Intermediate</div>
+            <div id="progress-bar" class="w-[70%] h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
+            <div
+              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
+          <span>💾</span>
+          <div>
+            <div>SQL</div>
+            <div>Intermediate</div>
+            <div id="progress-bar" class="w-[70%] h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
+            <div
+              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="font-bold text-lg mb-8 align-center gap-4  bg-blue-500">
+      <h3 class="font-bold text-lg mb-8 align-center gap-4 ">
+        <span>🎨</span>Web Development
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 ">
+
+        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
+          <span>🌐</span>
+          <div>HTML</div>
+          <div>Advanced</div>
+          <div id="progress-bar" class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
+            <div
+              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
+            </div>
+          </div>
+        </div>
+        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
+          <span>⚛️</span>
+          <div>React</div>
+          <div>Intermediate</div>
+          <div id="progress-bar" class="w-[70%] h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
+            <div
+              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
+            </div>
+          </div>
+        </div>
+        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
+          <span>☕</span>
+          <div>
+            <div>Node.js</div>
+            <div>Intermediate</div>
+            <div id="progress-bar" class="w-[70%] h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
+              <div
+                class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="font-bold text-lg mb-8 align-center gap-4  bg-blue-500">
+      <h3 class="font-bold text-lg mb-8 align-center gap-4 ">
+        <span>🛠️</span>Tools & Technologies
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 ">
+
+        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
+          <span>🐙</span>
+          <div>Git & GitHub</div>
+          <div>Advanced</div>
+          <div id="progress-bar" class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
+            <div
+              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
+            </div>
+          </div>
+        </div>
+        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
+          <span>🎯</span>
+          <div>React</div>
+          <div>Advanced</div>
+          <div id="progress-bar" class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
+            <div
+              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
+            </div>
+          </div>
+        </div>
+        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
+          <span>☕</span>
+          <div>
+            <div>VS Code</div>
+            <div>Advanced</div>
+            <div id="progress-bar" class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
+              <div
+                class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="font-bold text-lg mb-8 align-center gap-4  bg-blue-500">
+      <h3 class="font-bold text-lg mb-8 align-center gap-4 ">
+        <span>🛠️</span>Artificial Intelligence and Machine learning
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 ">
+
+        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
+          <span>🐙</span>
+          <div>Python</div>
+          <div>Beginner</div>
+          <div id="progress-bar" class="w-[40@] h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
+            <div
+              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
+            </div>
+          </div>
+        </div>
+        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
+          <span>🎯</span>
+          <div>Generative AI</div>
+          <div>Intermediate</div>
+          <div id="progress-bar" class="w-[70%] h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
+            <div
+              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
+            </div>
+        </div>
+        </div>
+        
+        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
+          <span>☕</span>
+          <div>
+            <div>Prompt Engineering</div>
+            <div>Advanced</div>
+            <div id="progress-bar" class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
+              <div
+                class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
+  </section>
+  <section id="contact" class="bg-gray-200 m-10 p-2">
+    <p>This is the contact section.</p>
+    </div>
+  </section>
+
+</body>
+
 </html>
