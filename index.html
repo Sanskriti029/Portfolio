@@ -227,7 +227,8 @@
 
       <div class="flex items-center gap-3">
         <!-- dark toggle -->
-        <button @click="dark=!dark"
+
+        <button onclick="toggleDarkMode()"
           class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"
           :aria-label="dark?'Light mode':'Dark mode'">
           <svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -465,7 +466,7 @@
       </div>
     </section>
     <!-- Certifications Section -->
-    <section id="Certifications" class="bg-gray-200 m-10 p-2">
+    <section id="Certifications" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
       <div class="max-w-6xl mx-auto px-6">
         <div class="mb-14">
 
@@ -474,46 +475,46 @@
         </div>
 
         <div class="grid grid-cols-3 gap-6">
-          <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
             <img src="./Certificates/Frontend-developer-hakerrank-certified.png" alt="">
 
-            <h3 class="eveal d1 font-display font-bold text-md md:text-5xl text-zinc-900 dark:text-white "> Frontend
+            <h3 class="reveal d1 font-display font-bold text-md md:text-2xl text-zinc-900 dark:text-white p-2 mb-4"> Frontend
               Developer (React)</h3>
               <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">HakerRank</span>
-            <p>Demonstrated proficiency in React fundamentals, hooks, reusable components, and frontend development
+                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-grey-500 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent mb-5 ">HakerRank</span>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed pt-4">Demonstrated proficiency in React fundamentals, hooks, reusable components, and frontend development
               practices.</p>
           </div>
         
-          <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
             <img src="./Certificates/Prompt-engineering-IBM_page-0001.jpg" alt="ibm certificate">
 
-            <h3 class="eveal d1 font-display font-bold text-md md:text-5xl text-zinc-900 dark:text-white "> Prompt Engineering</h3>
+            <h3 class="eveal d1 font-display font-bold text-md md:text-2xl text-zinc-900 dark:text-white p-2 mb-4"> Prompt Engineering</h3>
               <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">
+                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-grey-500 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent mb-5 ">
                   IBM</span>
-            <p>Completed a Prompt Engineering course covering effective AI communication, advanced prompting techniques, and GPT-based tools.
+           <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed pt-4">Completed a Prompt Engineering course covering effective AI communication, advanced prompting techniques, and GPT-based tools.
 Gained practical skills in crafting smarter prompts to improve AI-generated responses and productivity.</p>
       </div>
-          <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
             <img src="./Certificates/deloitte job simulation_page-0001.jpg" alt="deloitte certificate">
 
-            <h3 class="eveal d1 font-display font-bold text-md md:text-5xl text-zinc-900 dark:text-white "> Deloitte Data Analytics Virtual Experience</h3>
+            <h3 class="reveal d1 font-display font-bold text-md md:text-2xl text-zinc-900 dark:text-white p-2 mb-4"> Deloitte Data Analytics Virtual Experience</h3>
               <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">
+                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-grey-500 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent mb-5 ">
                    Forage - Deloitte</span>
-            <p>Performed business data analysis and dashboard visualization using Tableau and Excel.</p>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed pt-4">Performed business data analysis and dashboard visualization using Tableau and Excel.</p>
       </div>
 
 
     </section>
     <!-- Projects Section -->
-    <section id="Projects" class="bg-gray-200 m-10 p-2">
-      <h1 class="text-lg font-extrabold m-4p-4 item center">Projects</h1>
+    <section id="Projects" class=" p-24 py-24 bg-zinc-50 dark:bg-zinc-900/40">
+      <h1 class="text-lg font-extrabold m-4 p-4 item center  text-zinc-900 dark:text-white">Projects</h1>
       <div class="grid grid-cols-3 gap-8">
         <!-- project1 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h2 class="text-lg font-bold ">AWARE– AI Waste Classification System</h2>
+        <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+          <h2 class="text-4xl font-bold  text-zinc-900 dark:text-white ">AWARE– AI Waste Classification System</h2>
           <div class="flex flex-wrap gap-4 mt-4">
             <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">Python</span>
             <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">Flask</span>
@@ -523,8 +524,8 @@ Gained practical skills in crafting smarter prompts to improve AI-generated resp
             <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">CSS</span>
             <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">JavaScript</span>
           </div>
-          <h3 class="font-bold text-lg p-4 mt-2">Project Description</h3>
-          <ul class="list-disc">
+          <h3 class="font-bold text-lg p-4 mt-2  text-zinc-900 dark:text-white ">Project Description</h3>
+          <ul class="list-disc  text-zinc-900 dark:text-white ">
             <li>Developed an ML-powered image classification system for waste categorization and recycling awareness.
             </li>
             <li>Integrated ML pipeline with Flask backend enabling real-time predictions.</li>
@@ -533,15 +534,15 @@ Gained practical skills in crafting smarter prompts to improve AI-generated resp
           </ul>
         </div>
         <!--project2-->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h2 class="text-lg font-bold ">CineScope– Movie Discovery Platform</h2>
+        <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+          <h2 class="text-4xl font-bold  text-zinc-900 dark:text-white ">CineScope– Movie Discovery Platform</h2>
           <div class="flex flex-wrap gap-4 mt-4">
             <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">React</span>
             <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">Tailwind CSS</span>
             <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400"> APIs</span>
           </div>
-          <h3 class="font-bold text-lg p-4 mt-2">Project Description</h3>
-          <ul class="list-disc">
+          <h3 class="font-bold text-lg p-4 mt-2  text-zinc-900 dark:text-white ">Project Description</h3>
+          <ul class="list-disc  text-zinc-900 dark:text-white ">
             <li> Built a responsive movie discovery platform consuming external APIs for dynamic content.</li>
             <li>Implemented search and personalized watchlist features to enhance user experience.</li>
             <li>Optimized component architecture and routing for efficient rendering.</li>
@@ -549,15 +550,15 @@ Gained practical skills in crafting smarter prompts to improve AI-generated resp
           </ul>
         </div>
         <!-- project 3 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h2 class="text-lg font-bold ">To-do-list</h2>
+        <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+          <h2 class="text-4xl font-bold  text-zinc-900 dark:text-white ">To-do-list</h2>
           <div class="flex flex-wrap gap-4 mt-4">
             <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">React</span>
             <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">Tailwind CSS</span>
             <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400"> APIs</span>
           </div>
-          <h3 class="font-bold text-lg p-4 mt-2">Project Description</h3>
-          <ul class="list-disc">
+          <h3 class="font-bold text-lg p-4 mt-2  text-zinc-900 dark:text-white ">Project Description</h3>
+          <ul class="list-disc  text-zinc-900 dark:text-white ">
             <li> Built a responsive to-do list application with task management and organization features.</li>
             <li>Implemented user authentication and data persistence for a seamless experience.</li>
             <li>Optimized component architecture and routing for efficient rendering.</li>
@@ -566,29 +567,29 @@ Gained practical skills in crafting smarter prompts to improve AI-generated resp
           </ul>
         </div>
         <!-- project 4 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h2 class="text-lg font-bold ">Project-Ecommerce-System</h2>
+        <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+          <h2 class="text-4xl font-bold  text-zinc-900 dark:text-white ">Project-Ecommerce-System</h2>
           <div class="flex flex-wrap gap-4 mt-4">
             <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">Java</span>
 
           </div>
-          <h3 class="font-bold text-lg p-4 mt-2">Project Description</h3>
-          <ul class="list-disc">
+          <h3 class="font-bold text-lg p-4 mt-2  text-zinc-900 dark:text-white ">Project Description</h3>
+          <ul class="list-disc  text-zinc-900 dark:text-white ">
             <li>Built a responsive e-commerce system with product management and shopping cart features.</li>
             <li>Implemented user authentication and payment integration for a seamless experience.</li>
             <li>Optimized component architecture and routing for efficient rendering.</li>
           </ul>
         </div>
         <!-- project 5 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h2 class="text-lg font-bold ">CGPA Analyzer</h2>
+        <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+          <h2 class="text-4xl font-bold  text-zinc-900 dark:text-white ">CGPA Analyzer</h2>
           <div class="flex flex-wrap gap-4 mt-4">
             <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">JavaScript</span>
             <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">PHP</span>
 
           </div>
-          <h3 class="font-bold text-lg p-4 mt-2">Project Description</h3>
-          <ul class="list-disc">
+          <h3 class="font-bold text-lg p-4 mt-2  text-zinc-900 dark:text-white ">Project Description</h3>
+          <ul class="list-disc  text-zinc-900 dark:text-white ">
             <li> Built a responsive CGPA analyzer with grade calculation and visualization features.</li>
             <li>Provided actionable insights to improve semester-wise outcomes.</li>
             <li>Developed a web-based tool for tracking and analyzing academic performance.</li>
@@ -599,38 +600,38 @@ Gained practical skills in crafting smarter prompts to improve AI-generated resp
 
     </section>
 
-    <section id="Experience" class="bg-gray-200 m-10 p-2">
+    <section id="Experience" class="p-24 py-24 bg-zinc-50 dark:bg-zinc-900/40">
       <h1 class="text-lg font-extrabold m-4p-4 item center">Experience</h1>
-      <div>
-        <div>
-          <h1>
+      <div class="grid grid-cols-2 gap-8">
+        <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+          <h1 class="p-2 text-zinc-900 dark:text-white text-2xl font-bold">
             Frontend Development Intern
           </h1>
-          <p>
+          <p class="p-2 text-zinc-900 dark:text-white text-lg font-medium">
             Cognifyz Technologies
           </p>
-          <p>
-            March 2026– April 2026
+          <p class="p-2 text-zinc-900 dark:text-white">
+            Duration: March 2026– April 2026
           </p>
-          <ul class="list-disc">
+          <ul class="list-disc text-zinc-900 dark:text-white ">
             <li>Working on responsive and user-friendly web interfaces using modern frontend technologies</li>
             <li>Collaborating on real-world web development projects involving interactive UI components</li>
             <li>Contributing to frontend optimization, layout responsiveness, and improved user experience</li>
             <li>Gaining hands-on experience in professional software development workflows and team collaboration</li>
           </ul>
-        </div>
+        
       </div>
-      <div>
-        <h1>
+      <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+        <h1 class="p-2 text-zinc-900 dark:text-white text-2xl font-bold">
           Open Source Contributor
         </h1>
-        <p>
+        <p class="p-2 text-zinc-900 dark:text-white font-medium text-lg">
           GirlScript Summer of Code (GSSoC)
         </p>
-        <p>
-          May 2026- Present
+        <p class="p-2 text-zinc-900 dark:text-white">
+         Duration: May 2026- Present
         </p>
-        <ul class="list-disc">
+        <ul class="list-disc text-zinc-900 dark:text-white">
           <li>Contributed to open-source projects by developing features, fixing bugs, and improving project
             functionality
           </li>
@@ -928,58 +929,123 @@ Gained practical skills in crafting smarter prompts to improve AI-generated resp
       }
     </style>
     </section>
-    <section id="contact" class="bg-gray-200 m-10 p-2">
-      <p>This is the contact section.</p>
+    <section id="contact" class="p-24 py-24 bg-zinc-50 dark:bg-zinc-900/40">
+      <div class="max-w-6xl mx-auto px-6 py-12">
+        <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white mb-8">Contact Me</h2>
+        <p class="reveal d2 text-lg text-zinc-500 dark:text-zinc-400 mb-8">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out to me through any of the platforms below!</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="mailto:sanskritikhandelwal029@gmail.com" class="reveal d3 bg-accent text-white hover:bg-accent-hover py-2 px-4 rounded-md transition duration-300">Email Me</a>
+          <a href="https://www.linkedin.com/in/sanskritikhandelwal029" target="_blank" class="reveal d4 bg-blue-600 text-white hover:bg-blue-700 py-2 px-4 rounded-md transition duration-300">LinkedIn</a>
+          <a href="https://github.com/Sanskriti029" target="_blank" class="reveal d5 bg-blue-400 text-white hover:bg-blue-500 py-2 px-4 rounded-md transition duration-300">GitHub</a>
+        </div>
+
       </div>
+      <div>
+        <form id="contact-form" onsubmit="handleSubmit(event)">
+             <form class="space-y-6">
+
+  <!-- Name -->
+  <div class="flex flex-col gap-2">
+    <label for="name" class="text-sm font-medium text-zinc-700 dark:text-zinc-300 mt-2">
+      Your Name
+    </label>
+
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="John Doe"
+      required
+      class="w-full rounded-xl border border-zinc-300 dark:border-zinc-700 
+             bg-white dark:bg-zinc-900 
+             px-4 py-3 
+             text-zinc-900 dark:text-white
+             placeholder:text-zinc-400
+             focus:outline-none focus:ring-2 focus:ring-accent
+             transition-all"
+    />
+  </div>
+
+  <!-- Email -->
+  <div class="flex flex-col gap-2">
+    <label for="email" class="text-sm font-medium text-zinc-700 dark:text-zinc-300 mt-2">
+      Email Address
+    </label>
+
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="john@example.com"
+      required
+      class="w-full rounded-xl border border-zinc-300 dark:border-zinc-700 
+             bg-white dark:bg-zinc-900 
+             px-4 py-3 
+             text-zinc-900 dark:text-white
+             placeholder:text-zinc-400
+             focus:outline-none focus:ring-2 focus:ring-accent
+             transition-all"
+    />
+  </div>
+
+  <!-- Message -->
+  <div class="flex flex-col gap-2">
+    <label for="message" class="text-sm font-medium text-zinc-700 dark:text-zinc-300 mt-2">
+      Your Message
+    </label>
+
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      placeholder="Let's work together on something amazing!"
+      required
+      class="w-full rounded-xl border border-zinc-300 dark:border-zinc-700 
+             bg-white dark:bg-zinc-900 
+              px-4 py-3 p-2 
+             text-zinc-900 dark:text-white
+             placeholder:text-zinc-400
+             focus:outline-none focus:ring-2 focus:ring-accent
+             resize-none
+             transition-all"
+    ></textarea>
+  </div>
+
+  <!-- Button -->
+  <button
+    type="submit"
+    class="shimmer bg-accent hover:bg-accent-light 
+           text-white font-medium 
+           px-6 py-3 rounded-xl 
+           transition-all duration-300 mt-4"
+  >
+    Send Message 🚀
+  </button>
+</form>
     </section>
   </main>
   <footer>
     <p class="text-center text-zinc-600 dark:text-zinc-400">
       &copy; 2024 Sanskriiti. All rights reserved.
+    </p>
   </footer>
 
   <script>
-    function app() {
-      return {
-        dark: false,
-        mm: false,
-        sc: false,
-        s: 'hero',
+  function toggleDarkMode() {
+    document.documentElement.classList.toggle("dark");
 
-        init() {
-          // dark mode
-          this.dark = localStorage.getItem('theme') === 'dark' ||
-            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-          this.$watch('dark', v => localStorage.setItem('theme', v ? 'dark' : 'light'));
-
-          // scroll
-          window.addEventListener('scroll', () => {
-            this.sc = window.scrollY > 20;
-            this.updateSection();
-          }, { passive: true });
-
-          // reveal
-          const io = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-          }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-          document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-          // year
-          document.getElementById('yr').textContent = new Date().getFullYear();
-        },
-
-        updateSection() {
-          const atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 60;
-          if (atBottom) { this.s = 'contact'; return; }
-          const ids = ['contact', 'blog', 'reviews', 'about', 'work', 'services', 'hero'];
-          for (const id of ids) {
-            const el = document.getElementById(id);
-            if (el && window.scrollY >= el.offsetTop - 130) { this.s = id; return; }
-          }
-        }
-      }
+    if (document.documentElement.classList.contains("dark")) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
     }
-  </script>
+  }
+
+  // Load saved theme
+  if (localStorage.getItem("theme") === "dark") {
+    document.documentElement.classList.add("dark");
+  }
+</script>
 </body>
 
 </html>
