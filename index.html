@@ -6,6 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sanskriti</title>
   <link rel="stylesheet" href="style.css" />
+  
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
   <style>
     @keyframes fillBar {
       from {
@@ -17,100 +23,255 @@
       }
     }
   </style>
+  
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      fontFamily: { display: ['PT Sans','sans-serif'], body: ['DM Sans','sans-serif'] },
+      colors: { accent: '#FF6B2B', 'accent-light': '#FF8F5C' }
+    }
+  }
+}
+</script>
+  
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{font-family:'DM Sans',sans-serif}
+h1,h2,h3,h4,h5,h6{font-family:'PT Sans',sans-serif}
+body{transition:background-color .3s,color .3s}
+
+/* noise overlay */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E")}
+
+/* scrollbar */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#FF6B2B;border-radius:99px}
+
+/* reveal on scroll */
+/* .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)} */
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* nav underline animation */
+.nl{position:relative}
+.nl::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:currentColor;transition:width .22s cubic-bezier(.4,0,.2,1)}
+.nl:hover::after,.nl.on::after{width:100%}
+.nl.on{font-weight:500}
+
+/* shimmer button */
+.shimmer{position:relative;overflow:hidden}
+.shimmer::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:rgba(255,255,255,.18);transform:skewX(-20deg);transition:left .4s cubic-bezier(.4,0,.2,1)}
+.shimmer:hover::after{left:160%}
+
+/* photo frames */
+.pf{overflow:hidden;background:#d4d4d8}
+.pf img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* card hover */
+.card-h{transition:transform .28s cubic-bezier(.4,0,.2,1),border-color .18s}
+.card-h:hover{transform:translateY(-4px)}
+
+/* skill tag */
+.stag{transition:border-color .18s}
+
+[x-cloak]{display:none!important}
+</style>
 </head>
 
-<body class="bg-white max-h-2">
-  <nav class="flex">
-    <ul class="flex flex-row gap-8 items-end justify-end m-10">
-      <li>Sans<span class="text-[#ff793f] text-md">kriti</span></li>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#Skills">Skills</a></li>
-      <li><a href="#Certifications">Certifications</a></li>
-      <li><a href="#Projects">Work</a></li>
-      <li><a href="#Experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <button @click="dark=!dark"
-        class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"
-        :aria-label="dark?'Light mode':'Dark mode'">
-        <svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
-        </svg>
-        <svg x-show="dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
-        </svg>
-      </button>
-      <a href="#contact"
-        class="md:inline-flex items-center gap-2 shimmer bg-[#ff793f] text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-[#ff793f] transition-colors">Hire
-        me
-        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          Hire me
-        </svg>
-      </a>
+<body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
+ <header class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+  :class="sc?'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5':''">
+  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
+
+    <a href="#hero" class="font-display font-bold text-xl tracking-tight relative z-10">
+      <span class="text-zinc-900 dark:text-white">eli</span><span class="text-accent">ott</span>
+    </a>
+
+    <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
+      <li><a href="#services" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='services'?'on !text-zinc-900 dark:!text-white':''">Services</a></li>
+      <li><a href="#Projects"     class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='Projects'?'on !text-zinc-900 dark:!text-white':''">Projects</a></li>
+      <li><a href="#about"   class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='about'?'on !text-zinc-900 dark:!text-white':''">About</a></li>
+      <li><a href="#Experience" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='Experience'?'on !text-zinc-900 dark:!text-white':''">Experience</a></li>
+      <li><a href="#Certifications"    class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='Certifications'?'on !text-zinc-900 dark:!text-white':''">Certificates</a></li>
+      <li><a href="#skills" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='skills'?'on !text-zinc-900 dark:!text-white':''">Skills</a></li>
+      <li><a href="#contact" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='contact'?'on !text-zinc-900 dark:!text-white':''">Contact</a></li>
+
     </ul>
+
+    <div class="flex items-center gap-3">
+      <!-- dark toggle -->
+      <button @click="dark=!dark" class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors" :aria-label="dark?'Light mode':'Dark mode'">
+        <svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg x-show="dark"  class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+      </button>
+      <!-- hire me -->
+      <a href="#contact" class="hidden md:inline-flex items-center gap-2 shimmer bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-light transition-colors">
+        Hire me <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+      <!-- hamburger -->
+      <button @click="mm=!mm" class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800" :aria-expanded="mm" aria-label="Toggle menu">
+        <svg x-show="!mm" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg x-show="mm"  class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
   </nav>
-  <section id="home" class="bg-gray-200 m-10 p-2">
+
+  <!-- mobile menu -->
+  <div x-show="mm" x-cloak
+    x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2"
+    class="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900">
+    <ul class="flex flex-col px-6 py-5 gap-4 text-sm font-medium" role="list">
+      <li><a href="#services" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Services</a></li>
+      <li><a href="#Projects"     @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Projects</a></li>
+      <li><a href="#about"   @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">About</a></li>
+      <li><a href="#skills" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Skills</a></li>
+      <li><a href="#Certifications"    @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Certificates</a></li>
+      <li><a href="#Experience" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Experience</a></li>
+      <li class="pt-2 border-t border-zinc-100 dark:border-zinc-900">
+        <a href="#contact" @click="mm=false" class="inline-flex shimmer bg-accent text-white font-medium text-sm px-5 py-2.5 rounded-full">Hire me →</a>
+      </li>
+    </ul>
+  </div>
+</header>
+  <main>
+  <section id="home" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
+      <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-zinc-200/50 dark:bg-zinc-800/30 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+  <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+    
+    <div>
     <p class="reveal text-sm font-medium text-[#ff793f] tracking-widest uppercase mb-4">
       Available for work
     </p>
-    <h1 class="text-5xl">
+    <h1 class="reveal d1 font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-zinc-900 dark:text-white mb-6">
       Hi, I'm <span class="text-[#ff793f]">Sanskriti</span>
     </h1>
     <p>
-      Freelance UI/UX Designer & Frontend Developer. I design and build
-      digital products that people love to use — fast, clean, and accessible.
+      Learner,<span class="font-medium text-zinc-700 dark:text-zinc-300 ">  web developer & frontend developer.</span> I design and build digital products that people love to use — fast, clean, and accessible.
     </p>
-    <button class="rounded-full bg-white border-2 m-2 p-3">
-      <a href="#Work"> View My Work</a>
-    </button>
-    <button class="rounded-full border-2 m-2 p-3">
-      <a href="#contact">Get In Touch</a>
-    </button>
-  </section>
+    <div class="reveal d3 flex flex-wrap gap-4">
+          <a href="#work" class="shimmer inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-colors text-sm"> View My Work
+             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </a>
+          <a href="#contact" class="inline-flex items-center gap-2 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors text-sm">Get in touch</a>
+          </a>
+        </div>
+     <div class="reveal d4 flex gap-8 mt-14 pt-8 border-t border-zinc-100 dark:border-zinc-900">
+          <div><p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">4+</p><p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Projects done</p></div>
+          <div><p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">10+</p><p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Skills</p></div>
+          <!-- <div><p class="font-display font-bold text-3xl text-zinc-900 dark:text-white"></p><p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Experience</p></div> -->
+        </div>
+      </div>
+    <div class="reveal d2 flex justify-center md:justify-end">
+        <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
+          <div class="pf w-full h-full rounded-3xl">
+            <img src="Screenshot_20240823_192917.jpg" alt="Eliott — Freelance UI/UX Designer" loading="eager">
+          </div>
+          <div class="absolute -bottom-4 -left-4 bg-accent text-white font-display font-bold text-sm px-4 py-2.5 rounded-2xl shadow-lg">Open to projects</div>
+        </div>
+      </div>
 
+    <!-- <div class="pf w-full h-full rounded-3xl">
+      <img src="Screenshot_20240823_192917.jpg" alt="Profile Image">
+   </div> -->
+   </div>
+  </section>
+<section id="about" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+      <div class="reveal order-2 md:order-1">
+        <div class="pf w-full aspect-square max-w-sm mx-auto rounded-3xl">
+          <img src="Screenshot_20240823_192917.jpg" alt="Eliott" loading="lazy">
+        </div>
+      </div>
+
+      <div class="order-1 md:order-2">
+        <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">About me</p>
+        <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white leading-tight mb-6">A bit about<br>who I am</h2>
+        <p class="reveal d2 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
+         Hey there! 👋 I'm a third-year computer science student with a passion for creating innovative
+                    solutions and learning new technologies every day.
+        </p>
+        <p class="reveal d3 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-8">
+          My journey in tech started with curiosity and has grown into a genuine love for problem-solving
+                    through code. I'm constantly exploring new frameworks, building projects, and collaborating with
+                    fellow developers to expand my skills and contribute to the tech community. Whether it's developing web applications,
+                    diving into machine learning, or contributing to open-source projects, I'm always eager to take on new challenges and make an impact in the world of technology.
+        </p>
+        <div class="reveal d4">
+          <p class="text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-3">Stack &amp; tools</p>
+          <div class="flex flex-wrap gap-2" role="list" aria-label="Skills">
+            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Tailwind CSS</span>
+            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">React.js</span>
+            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Node.js</span>
+            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">HTML / CSS</span>
+            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">JavaScript</span>
+            <!-- <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent"></span> -->
+            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">API Design</span>
+            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Python</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
   <!-- Services Section -->
-  <section id="services" class="bg-gray-200 m-10 p-2">
-    <p>this is the services section</p>
+  <section id="services" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="mb-14">
 
     <p class="text-lg font-semibold text-[#ff793f]">What I do</p>
-    <div class="grid grid-cols-3 gap-8">
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512"
-          class="w-8 h-8 md:w-12 md:h-12" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z">
-          </path>
-        </svg>
-        <h2 class="text-lg font-bold ">Frontend Development</h2>
-        <p>Production-grade code with Tailwind CSS and React.js. Pixel-perfect, fully responsive, SEO-friendly and
-          blazing fast — no bloat, no heavy frameworks.</p>
-      </div>
+    <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Services</h2>
+    </div>
 
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512"
-          class="w-8 h-8 md:w-12 md:h-12" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M208 0c-29.9 0-54.7 20.5-61.8 48.2-.8 0-1.4-.2-2.2-.2-35.3 0-64 28.7-64 64 0 4.8.6 9.5 1.7 14C52.5 138 32 166.6 32 200c0 12.6 3.2 24.3 8.3 34.9C16.3 248.7 0 274.3 0 304c0 33.3 20.4 61.9 49.4 73.9-.9 4.6-1.4 9.3-1.4 14.1 0 39.8 32.2 72 72 72 4.1 0 8.1-.5 12-1.2 9.6 28.5 36.2 49.2 68 49.2 39.8 0 72-32.2 72-72V64c0-35.3-28.7-64-64-64zm368 304c0-29.7-16.3-55.3-40.3-69.1 5.2-10.6 8.3-22.3 8.3-34.9 0-33.4-20.5-62-49.7-74 1-4.5 1.7-9.2 1.7-14 0-35.3-28.7-64-64-64-.8 0-1.5.2-2.2.2C422.7 20.5 397.9 0 368 0c-35.3 0-64 28.6-64 64v376c0 39.8 32.2 72 72 72 31.8 0 58.4-20.7 68-49.2 3.9.7 7.9 1.2 12 1.2 39.8 0 72-32.2 72-72 0-4.8-.5-9.5-1.4-14.1 29-12 49.4-40.6 49.4-73.9z">
-          </path>
-        </svg>
-        <h2 class="text-lg font-bold ">Machine Learning</h2>
-        <p>Building intelligent systems that can learn and adapt to new information.</p>
-      </div>
+    <div class="grid grid-cols-3 gap-6">
+     
+      
+      <article class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+        <div class="w-12 h-12 flex items-center justify-center bg-orange-50 dark:bg-zinc-800 rounded-xl mb-6 group-hover:bg-accent/10 transition-colors">
+          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m2 4l2 2-2 2M6 14l6 6m4-6l4 4-4 4"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">Frontend Development</h3>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">Production-grade code with Tailwind CSS and React.js. Pixel-perfect, fully responsive, SEO-friendly and blazing fast — no bloat, no heavy frameworks.</p>
+      </article>
 
+      <article class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+        <div class="w-12 h-12 flex items-center justify-center bg-orange-50 dark:bg-zinc-800 rounded-xl mb-6 group-hover:bg-accent/10 transition-colors">
+          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">Machine Learning</h3>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">Building intelligent systems that can learn and adapt to new information.</p>
+      </article>
 
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 352 512"
-          class="w-8 h-8 md:w-12 md:h-12" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z">
-          </path>
-        </svg>
+      
+
+      <article class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+        <div class="w-12 h-12 flex items-center justify-center bg-orange-50 dark:bg-zinc-800 rounded-xl mb-6 group-hover:bg-accent/10 transition-colors">
+         <svg
+  viewBox="0 0 352 512"
+  fill="currentColor"
+  class="w-6 h-6 text-accent"
+>
+  <path d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"/>
+</svg>
+</div>
+        <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">Open Source</h3>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">Contributing to and maintaining open-source projects that benefit the community. Contributer in GSSOC'26</p>
+      </article>
+        <!-- </svg>
         <h2 class="text-lg font-bold ">Open Source</h2>
         <p>Contributing to and maintaining open-source projects that benefit the community. Contributer in GSSOC'26</p>
-      </div>
+      </div> -->
+    <!-- </div> -->
+  </div>
     </div>
   </section>
   <!-- Certifications Section -->
@@ -266,202 +427,331 @@
       </ul>
     </div>
   </section>
-  <section id="skills" class="bg-gray-200 m-10 p-2">
-    <h1 class="text-lg font-extrabold m-4p-4 item center">My Skills</h1>
+  
+<section id="skills" class="bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 rounded-3xl m-10 p-8">
 
-    <div class="font-bold text-lg mb-8 align-center gap-4  bg-blue-500">
-      <h3 class="font-bold text-lg mb-8 align-center gap-4 ">
-        <span>💻</span>Programming Languages
-      </h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 ">
+  <h1 class="text-4xl font-extrabold text-center mb-12 text-zinc-900 dark:text-white">
+    My Skills
+  </h1>
 
-        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
-          <span>🌐</span>
-          <div>C++</div>
-          <div>Advanced</div>
-          <div id="progress-bar" class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
-            <div
-              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
-            </div>
-          </div>
-        </div>
-        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
-          <span>⚡</span>
-          <div>JavaScript</div>
-          <div>Advanced</div>
-          <div id="progress-bar" class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
-            <div
-              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
-            </div>
-          </div>
-    </div>
-        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
-          <span>🐍</span>
-          <div>Python</div>
-          <div>Intermediate</div>
-          <div id="progress-bar" class="w-[70%] h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
-            <div
-              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
-            </div>
-          </div>
-        </div>
-        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
-          <span>☕</span>
-          <div>
-            <div>Java</div>
-            <div>Intermediate</div>
-            <div id="progress-bar" class="w-[70%] h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
-            <div
-              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
-            </div>
-          </div>
-          </div>
-        </div>
-        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
-          <span>💾</span>
-          <div>
-            <div>SQL</div>
-            <div>Intermediate</div>
-            <div id="progress-bar" class="w-[70%] h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
-            <div
-              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
-            </div>
-          </div>
-          </div>
+  <!-- Programming Languages -->
+  <div class="mb-12">
+    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-accent">
+      <span>💻</span> Programming Languages
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Card -->
+      <div class="card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+        <span class="text-3xl">🌐</span>
+
+        <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+          C++
+        </h4>
+
+        <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+          Advanced
+        </p>
+
+        <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+          <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
         </div>
       </div>
-    </div>
-    <div class="font-bold text-lg mb-8 align-center gap-4  bg-blue-500">
-      <h3 class="font-bold text-lg mb-8 align-center gap-4 ">
-        <span>🎨</span>Web Development
-      </h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 ">
 
-        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
-          <span>🌐</span>
-          <div>HTML</div>
-          <div>Advanced</div>
-          <div id="progress-bar" class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
-            <div
-              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
-            </div>
-          </div>
-        </div>
-        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
-          <span>⚛️</span>
-          <div>React</div>
-          <div>Intermediate</div>
-          <div id="progress-bar" class="w-[70%] h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
-            <div
-              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
-            </div>
-          </div>
-        </div>
-        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
-          <span>☕</span>
-          <div>
-            <div>Node.js</div>
-            <div>Intermediate</div>
-            <div id="progress-bar" class="w-[70%] h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
-              <div
-                class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
-              </div>
-            </div>
-          </div>
+      <!-- Card -->
+      <div class="card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+        <span class="text-3xl">⚡</span>
+
+        <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+          JavaScript
+        </h4>
+
+        <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+          Advanced
+        </p>
+
+        <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+          <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
         </div>
       </div>
-    </div>
 
-    <div class="font-bold text-lg mb-8 align-center gap-4  bg-blue-500">
-      <h3 class="font-bold text-lg mb-8 align-center gap-4 ">
-        <span>🛠️</span>Tools & Technologies
-      </h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 ">
+      <!-- Card -->
+      <div class="card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+        <span class="text-3xl">🐍</span>
 
-        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
-          <span>🐙</span>
-          <div>Git & GitHub</div>
-          <div>Advanced</div>
-          <div id="progress-bar" class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
-            <div
-              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
-            </div>
-          </div>
-        </div>
-        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
-          <span>🎯</span>
-          <div>React</div>
-          <div>Advanced</div>
-          <div id="progress-bar" class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
-            <div
-              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
-            </div>
-          </div>
-        </div>
-        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
-          <span>☕</span>
-          <div>
-            <div>VS Code</div>
-            <div>Advanced</div>
-            <div id="progress-bar" class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
-              <div
-                class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
-              </div>
-            </div>
-          </div>
+        <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+          Python
+        </h4>
+
+        <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+          Intermediate
+        </p>
+
+        <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+          <div class="h-full w-[70%] bg-accent-light animate-fillBar rounded-full"></div>
         </div>
       </div>
-    </div>
-    <div class="font-bold text-lg mb-8 align-center gap-4  bg-blue-500">
-      <h3 class="font-bold text-lg mb-8 align-center gap-4 ">
-        <span>🛠️</span>Artificial Intelligence and Machine learning
-      </h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 ">
 
-        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
-          <span>🐙</span>
-          <div>Python</div>
-          <div>Beginner</div>
-          <div id="progress-bar" class="w-[40@] h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
-            <div
-              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
-            </div>
-          </div>
-        </div>
-        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
-          <span>🎯</span>
-          <div>Generative AI</div>
-          <div>Intermediate</div>
-          <div id="progress-bar" class="w-[70%] h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
-            <div
-              class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
-            </div>
-        </div>
-        </div>
-        
-        <div class="bg-blue-200 rounded-2xl p-2 m-3 ">
-          <span>☕</span>
-          <div>
-            <div>Prompt Engineering</div>
-            <div>Advanced</div>
-            <div id="progress-bar" class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
-              <div
-                class="h-full rounded-full origin-left animate-[fillBar_2s_ease-out_forwards] bg-gradient-to-r from-violet-500 to-blue-500">
-              </div>
-          </div>
+    </div>
+  </div>
+
+  <!-- Web Development -->
+  <div class="mb-12">
+    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-accent">
+      <span>🎨</span> Web Development
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Card -->
+      <div class="card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+        <span class="text-3xl">🌐</span>
+
+        <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+          HTML
+        </h4>
+
+        <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+          Advanced
+        </p>
+
+        <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+          <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
         </div>
       </div>
+
+      <!-- Card -->
+      <div class="card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+        <span class="text-3xl">⚛️</span>
+
+        <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+          React
+        </h4>
+
+        <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+          Intermediate
+        </p>
+
+        <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+          <div class="h-full w-[70%] bg-accent-light animate-fillBar rounded-full"></div>
+        </div>
+      </div>
+
+      <!-- Card -->
+      <div class="card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+        <span class="text-3xl">🟢</span>
+
+        <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+          Node.js
+        </h4>
+
+        <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+          Intermediate
+        </p>
+
+        <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+          <div class="h-full w-[70%] bg-accent-light animate-fillBar rounded-full"></div>
+        </div>
+      </div>
+
     </div>
+  </div>
+    <!-- Tools & Technologies -->
+  <div class="mb-12">
+    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-accent">
+      <span>🛠️</span> Tools & Technologies
+    </h3>
 
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-  </section>
+      <!-- Git -->
+      <div class="card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+        <span class="text-3xl">🐙</span>
 
+        <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+          Git & GitHub
+        </h4>
+
+        <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+          Advanced
+        </p>
+
+        <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+          <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
+        </div>
+      </div>
+
+      <!-- React -->
+      <div class="card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+        <span class="text-3xl">🎯</span>
+
+        <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+          React
+        </h4>
+
+        <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+          Advanced
+        </p>
+
+        <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+          <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
+        </div>
+      </div>
+
+      <!-- VS Code -->
+      <div class="card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+        <span class="text-3xl">💻</span>
+
+        <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+          VS Code
+        </h4>
+
+        <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+          Advanced
+        </p>
+
+        <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+          <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- AI & ML -->
+  <div class="mb-12">
+    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-accent">
+      <span>🤖</span> Artificial Intelligence & Machine Learning
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Python -->
+      <div class="card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+        <span class="text-3xl">🐍</span>
+
+        <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+          Python
+        </h4>
+
+        <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+          Beginner
+        </p>
+
+        <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+          <div class="h-full w-[40%] bg-accent-light animate-fillBar rounded-full"></div>
+        </div>
+      </div>
+
+      <!-- Gen AI -->
+      <div class="card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+        <span class="text-3xl">✨</span>
+
+        <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+          Generative AI
+        </h4>
+
+        <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+          Intermediate
+        </p>
+
+        <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+          <div class="h-full w-[70%] bg-accent-light animate-fillBar rounded-full"></div>
+        </div>
+      </div>
+
+      <!-- Prompt Engineering -->
+      <div class="card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+        <span class="text-3xl">🧠</span>
+
+        <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+          Prompt Engineering
+        </h4>
+
+        <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+          Advanced
+        </p>
+
+        <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+          <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<style>
+@keyframes fillBar {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.animate-fillBar {
+  animation: fillBar 1.8s ease-out forwards;
+}
+</style>
   </section>
   <section id="contact" class="bg-gray-200 m-10 p-2">
     <p>This is the contact section.</p>
     </div>
   </section>
+</main>
+<footer>
+  <p class="text-center text-zinc-600 dark:text-zinc-400">
+    &copy; 2024 Sanskriiti. All rights reserved.
+</footer>
 
+<script>
+function app() {
+  return {
+    dark: false,
+    mm: false,
+    sc: false,
+    s: 'hero',
+
+    init() {
+      // dark mode
+      this.dark = localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      this.$watch('dark', v => localStorage.setItem('theme', v ? 'dark' : 'light'));
+
+      // scroll
+      window.addEventListener('scroll', () => {
+        this.sc = window.scrollY > 20;
+        this.updateSection();
+      }, { passive: true });
+
+      // reveal
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+      // year
+      document.getElementById('yr').textContent = new Date().getFullYear();
+    },
+
+    updateSection() {
+      const atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 60;
+      if (atBottom) { this.s = 'contact'; return; }
+      const ids = ['contact','blog','reviews','about','work','services','hero'];
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 130) { this.s = id; return; }
+      }
+    }
+  }
+}
+</script>
 </body>
-
 </html>
