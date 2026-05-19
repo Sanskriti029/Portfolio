@@ -49,12 +49,22 @@ window.addEventListener("scroll", () => {
   
   lastScroll = currentScroll;
 });
+
+// Default dark mode
+document.documentElement.classList.add("dark");
+
+// Set correct icon on load
+document.getElementById("moonIcon").classList.add("hidden");
+document.getElementById("sunIcon").classList.remove("hidden");
+
 // Dark mode toggle
 function toggleDarkMode() {
   document.documentElement.classList.toggle("dark");
+
   document.getElementById("moonIcon").classList.toggle("hidden");
   document.getElementById("sunIcon").classList.toggle("hidden");
 }
+
 // Mobile menu toggle
 function toggleMenu() {
   document.getElementById("mobileMenu").classList.toggle("hidden");
