@@ -24,6 +24,47 @@
         transform: scaleX(1);
       }
     }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-18px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes gradientMove {
+      0% {
+        background-position: 0%;
+      }
+
+      100% {
+        background-position: 200%;
+      }
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg,
+          #FF6B2B,
+          #ff9966,
+          #FF6B2B);
+
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      animation: gradientMove 4s linear infinite;
+    }
   </style>
 
   <script>
@@ -88,12 +129,22 @@
       border-radius: 99px
     }
 
-    /* reveal on scroll */
-    /* .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)} */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition:
+        opacity .9s cubic-bezier(.2, .65, .3, 1),
+        transform .9s cubic-bezier(.2, .65, .3, 1);
+    }
+
     .reveal.in {
       opacity: 1;
-      transform: none
+      transform: translateY(0);
     }
+
+    /* reveal on scroll */
+    /* .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)} */
+
 
     .d1 {
       transition-delay: .08s
@@ -188,62 +239,115 @@
     [x-cloak] {
       display: none !important
     }
+
+    .card-h {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-h::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left,
+          rgba(255, 107, 43, .18),
+          transparent 60%);
+
+      opacity: 0;
+      transition: opacity .4s ease;
+
+      pointer-events: none;
+      /* IMPORTANT FIX */
+      z-index: 0;
+    }
+
+    .card-h>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-h:hover::before {
+      opacity: 1;
+    }
+
+    button:active,
+    a:active {
+      transform: scale(.96);
+    }
+
+    #cursorGlow {
+      position: fixed;
+      width: 220px;
+      height: 220px;
+      background: rgba(255, 107, 43, .15);
+      border-radius: 999px;
+      filter: blur(70px);
+      pointer-events: none;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+    }
+
+    .pf img {
+      transition: transform .7s ease;
+    }
+
+    .pf:hover img {
+      transform: scale(1.08);
+    }
   </style>
 </head>
 
 <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
-  <header class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
-    :class="sc?'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5':''">
+  <div id="cursorGlow"></div>
+  <header id="mainHeader" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
     <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
-
       <a href="#hero" class="font-display font-bold text-xl tracking-tight relative z-10">
-        <span class="text-zinc-900 dark:text-white">Sans</span><span class="text-accent">kriti</span>
+        <span class="text-accent">Sanskriti</span>
       </a>
 
       <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
         <li><a href="#services"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='services'?'on !text-zinc-900 dark:!text-white':''">Services</a></li>
+            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Services</a>
+        </li>
         <li><a href="#Projects"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='Projects'?'on text-zinc-900 dark:!text-white':''">Projects</a></li>
+            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Projects</a>
+        </li>
         <li><a href="#about"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='about'?'on !text-zinc-900 dark:!text-white':''">About</a></li>
+            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">About</a>
+        </li>
         <li><a href="#Experience"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='Experience'?'on !text-zinc-900 dark:!text-white':''">Experience</a></li>
+            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Experience</a>
+        </li>
         <li><a href="#Certifications"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='Certifications'?'on !text-zinc-900 dark:!text-white':''">Certificates</a></li>
+            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Certificates</a>
+        </li>
         <li><a href="#skills"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='skills'?'on !text-zinc-900 dark:!text-white':''">Skills</a></li>
+            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Skills</a>
+        </li>
         <li><a href="#contact"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='contact'?'on !text-zinc-900 dark:!text-white':''">Contact</a></li>
-
+            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Contact</a>
+        </li>
       </ul>
 
       <div class="flex items-center gap-3">
         <!-- dark toggle -->
-<!-- Dark Mode Button -->
-<button onclick="toggleDarkMode()"
-  class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+        <!-- Dark Mode Button -->
+        <button onclick="toggleDarkMode()"
+          class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
 
-  <!-- Moon Icon -->
-  <svg id="moonIcon" class="w-4 h-4 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-      d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
-  </svg>
+          <!-- Moon Icon -->
+          <svg id="moonIcon" class="w-4 h-4 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
 
-  <!-- Sun Icon -->
-  <svg id="sunIcon" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
-  </svg>
+          <!-- Sun Icon -->
+          <svg id="sunIcon" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+          </svg>
 
-</button>
+        </button>
         <!-- hire me -->
         <a href="#contact"
           class="hidden md:inline-flex items-center gap-2 shimmer bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-light transition-colors">
@@ -253,43 +357,41 @@
         </a>
         <!-- hamburger -->
         <button onclick="toggleMenu()"
-  class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800"
-  aria-label="Toggle menu">
+          class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800"
+          aria-label="Toggle menu">
 
-  <!-- Hamburger -->
-  <svg id="menuIcon" class="w-4 h-4 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-      d="M4 6h16M4 12h16M4 18h16" />
-  </svg>
+          <!-- Hamburger -->
+          <svg id="menuIcon" class="w-4 h-4 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
 
-  <!-- Close -->
-  <svg id="closeIcon" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-      d="M6 18L18 6M6 6l12 12" />
-  </svg>
+          <!-- Close -->
+          <svg id="closeIcon" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
 
-</button>
+        </button>
       </div>
     </nav>
 
     <!-- mobile menu -->
-   <div id="mobileMenu"
-  class="hidden md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900">
+    <div id="mobileMenu"
+      class="hidden md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900">
       <ul class="flex flex-col px-6 py-5 gap-4 text-sm font-medium" role="list">
-        <li><a href="#services" @click="mm=false"
+        <li><a href="#services"
             class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Services</a></li>
-        <li><a href="#Projects" @click="mm=false"
+        <li><a href="#Projects"
             class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Projects</a></li>
-        <li><a href="#about" @click="mm=false"
+        <li><a href="#about"
             class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">About</a></li>
-        <li><a href="#skills" @click="mm=false"
+        <li><a href="#skills"
             class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Skills</a></li>
-        <li><a href="#Certifications" @click="mm=false"
+        <li><a href="#Certifications"
             class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Certificates</a></li>
-        <li><a href="#Experience" @click="mm=false"
+        <li><a href="#Experience"
             class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Experience</a></li>
         <li class="pt-2 border-t border-zinc-100 dark:border-zinc-900">
-          <a href="#contact" @click="mm=false"
+          <a href="#contact"
             class="inline-flex shimmer bg-accent text-white font-medium text-sm px-5 py-2.5 rounded-full">Hire me →</a>
         </li>
       </ul>
@@ -298,7 +400,8 @@
   <main>
     <section id="home" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
       <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"></div>
+        aria-hidden="true">
+      </div>
       <div
         class="absolute bottom-1/4 left-0 w-64 h-64 bg-zinc-200/50 dark:bg-zinc-800/30 rounded-full blur-3xl pointer-events-none"
         aria-hidden="true"></div>
@@ -311,7 +414,8 @@
             </p>
             <h1
               class="reveal d1 font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-zinc-900 dark:text-white mb-6">
-              Hi, I'm <span class="text-[#ff793f]">Sanskriti</span>
+              Hi, I'm
+              <span id="typingText" class="text-[#ff793f]"></span>
             </h1>
             <p>
               Learner,<span class="font-medium text-zinc-700 dark:text-zinc-300 "> web developer & frontend
@@ -469,7 +573,7 @@
             <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">Contributing to and maintaining
               open-source projects that benefit the community. Contributer in GSSOC'26</p>
           </article>
-         
+
         </div>
       </div>
     </section>
@@ -479,40 +583,51 @@
         <div class="mb-14">
 
           <p class="text-lg font-semibold text-[#ff793f]">What I do</p>
-          <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Certificates</h2>
+          <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Certificates
+          </h2>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
-          <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+          <div
+            class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
             <img src="./Certificates/Frontend-developer-hakerrank-certified.png" alt="">
 
-            <h3 class="reveal d1 font-display font-bold text-md md:text-2xl text-zinc-900 dark:text-white p-2 mb-4"> Frontend
+            <h3 class="reveal d1 font-display font-bold text-md md:text-2xl text-zinc-900 dark:text-white p-2 mb-4">
+              Frontend
               Developer (React)</h3>
-              <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-grey-500 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent mb-5 ">HakerRank</span>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed pt-4">Demonstrated proficiency in React fundamentals, hooks, reusable components, and frontend development
+            <span role="listitem"
+              class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-grey-500 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent mb-5 ">HakerRank</span>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed pt-4">Demonstrated proficiency in React
+              fundamentals, hooks, reusable components, and frontend development
               practices.</p>
           </div>
-        
-          <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+
+          <div
+            class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
             <img src="./Certificates/Prompt-engineering-IBM_page-0001.jpg" alt="ibm certificate">
 
-            <h3 class="eveal d1 font-display font-bold text-md md:text-2xl text-zinc-900 dark:text-white p-2 mb-4"> Prompt Engineering</h3>
-              <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-grey-500 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent mb-5 ">
-                  IBM</span>
-           <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed pt-4">Completed a Prompt Engineering course covering effective AI communication, advanced prompting techniques, and GPT-based tools.
-Gained practical skills in crafting smarter prompts to improve AI-generated responses and productivity.</p>
-      </div>
-          <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+            <h3 class="reveal d1 font-display font-bold text-md md:text-2xl text-zinc-900 dark:text-white p-2 mb-4">
+              Prompt Engineering</h3>
+            <span role="listitem"
+              class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-grey-500 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent mb-5 ">
+              IBM</span>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed pt-4">Completed a Prompt Engineering
+              course covering effective AI communication, advanced prompting techniques, and GPT-based tools.
+              Gained practical skills in crafting smarter prompts to improve AI-generated responses and productivity.
+            </p>
+          </div>
+          <div
+            class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
             <img src="./Certificates/deloitte job simulation_page-0001.jpg" alt="deloitte certificate">
 
-            <h3 class="reveal d1 font-display font-bold text-md md:text-2xl text-zinc-900 dark:text-white p-2 mb-4"> Deloitte Data Analytics Virtual Experience</h3>
-              <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-grey-500 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent mb-5 ">
-                   Forage - Deloitte</span>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed pt-4">Performed business data analysis and dashboard visualization using Tableau and Excel.</p>
-      </div>
+            <h3 class="reveal d1 font-display font-bold text-md md:text-2xl text-zinc-900 dark:text-white p-2 mb-4">
+              Deloitte Data Analytics Virtual Experience</h3>
+            <span role="listitem"
+              class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-grey-500 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent mb-5 ">
+              Forage - Deloitte</span>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed pt-4">Performed business data analysis
+              and dashboard visualization using Tableau and Excel.</p>
+          </div>
 
 
     </section>
@@ -521,16 +636,17 @@ Gained practical skills in crafting smarter prompts to improve AI-generated resp
       <h1 class="text-4xl font-extrabold text-center mb-12 text-zinc-900 dark:text-white">Projects</h1>
       <div class="grid md:grid-cols-3 gap-8">
         <!-- project1 -->
-        <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+        <div
+          class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
           <h2 class="text-4xl font-bold  text-zinc-900 dark:text-white ">AWARE– AI Waste Classification System</h2>
           <div class="flex flex-wrap gap-4 mt-4">
-            <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">Python</span>
-            <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">Flask</span>
-            <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">Machine Learning</span>
-            <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">MySQL</span>
-            <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">Html</span>
-            <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">CSS</span>
-            <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">JavaScript</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400">Python</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400">Flask</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400">Machine Learning</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400">MySQL</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400">HTML</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400">CSS</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400">JavaScript</span>
           </div>
           <h3 class="font-bold text-lg p-4 mt-2  text-zinc-900 dark:text-white ">Project Description</h3>
           <ul class="list-disc  text-zinc-900 dark:text-white ">
@@ -540,14 +656,23 @@ Gained practical skills in crafting smarter prompts to improve AI-generated resp
             <li>Designed scalable backend architecture with structured data storage using MySQL.</li>
             <li> Generated automated sustainability recommendations based on classification results.</li>
           </ul>
+
+          <div class="mt-6">
+            <a href="https://github.com/Sanskriti029/A.W.A.R.E" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center justify-center bg-accent text-white px-6 py-3 rounded-full hover:bg-accent-light transition-all duration-300 font-medium shadow-md hover:scale-105">
+              View Source Code
+            </a>
+          </div>
+
         </div>
         <!--project2-->
-        <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+        <div
+          class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
           <h2 class="text-4xl font-bold  text-zinc-900 dark:text-white ">CineScope– Movie Discovery Platform</h2>
           <div class="flex flex-wrap gap-4 mt-4">
-            <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">React</span>
-            <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">Tailwind CSS</span>
-            <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400"> APIs</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400">React</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400">Tailwind CSS</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400"> APIs</span>
           </div>
           <h3 class="font-bold text-lg p-4 mt-2  text-zinc-900 dark:text-white ">Project Description</h3>
           <ul class="list-disc  text-zinc-900 dark:text-white ">
@@ -556,29 +681,72 @@ Gained practical skills in crafting smarter prompts to improve AI-generated resp
             <li>Optimized component architecture and routing for efficient rendering.</li>
 
           </ul>
+          <div class="mt-6">
+            <a href="https://github.com/Sanskriti029/A.W.A.R.E" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center justify-center bg-accent text-white px-6 py-3 rounded-full hover:bg-accent-light transition-all duration-300 font-medium shadow-md hover:scale-105">
+              View Source Code
+            </a>
+          </div>
         </div>
+        <!-- project-3 -->
+         <div
+          class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+          <h2 class="text-4xl font-bold  text-zinc-900 dark:text-white ">Smart Healthcare Web Platform</h2>
+          <div class="flex flex-wrap gap-4 mt-4">
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400">React.js</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400"> TypeScript</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400"> Flask</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400"> SQLAlchemy</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400"> JWT Authentication</span>
+          </div>
+          <h3 class="font-bold text-lg p-4 mt-2  text-zinc-900 dark:text-white ">Project Description</h3>
+          <ul class="list-disc  text-zinc-900 dark:text-white ">
+            <li> Engineered a full-stack healthcare platform supporting symptom triage, appointment booking, and
+              hospital discovery.
+            </li>
+            <li>Designed a rule-based triage engine to classify symptom severity and automate care pathways.</li>
+            <li>Developed secure REST APIs with JWT authentication and role-based access control.</li>
+            <li>Implemented a real-time notification system to improve appointment tracking and user engagement.</li>
+            <li>Built scalable backend services capable of handling concurrent user requests.</li>
+            <li>Automated PDF report generation for improved accessibility of health data.</li>
+          </ul>
+
+          <div class="mt-6">
+            <a href="https://github.com/Sanskriti029/ai-healthcare" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center justify-center bg-accent text-white px-6 py-3 rounded-full hover:bg-accent-light transition-all duration-300 font-medium shadow-md hover:scale-105">
+              View Source Code
+            </a>
+
+          </div>
+          </div>
         <!-- project 3 -->
-        <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+        <div
+          class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
           <h2 class="text-4xl font-bold  text-zinc-900 dark:text-white ">To-do-list</h2>
           <div class="flex flex-wrap gap-4 mt-4">
-            <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">React</span>
-            <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400">Tailwind CSS</span>
-            <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400"> APIs</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400">React</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400">Tailwind CSS</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400"> APIs</span>
           </div>
           <h3 class="font-bold text-lg p-4 mt-2  text-zinc-900 dark:text-white ">Project Description</h3>
           <ul class="list-disc  text-zinc-900 dark:text-white ">
             <li> Built a responsive to-do list application with task management and organization features.</li>
             <li>Implemented user authentication and data persistence for a seamless experience.</li>
             <li>Optimized component architecture and routing for efficient rendering.</li>
-
-
           </ul>
+          <div class="mt-6">
+            <a href="https://github.com/Sanskriti029/To-do-list" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center justify-center bg-accent text-white px-6 py-3 rounded-full hover:bg-accent-light transition-all duration-300 font-medium shadow-md hover:scale-105">
+              View Source Code
+            </a>
+          </div>
         </div>
         <!-- project 4 -->
-        <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+        <div
+          class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
           <h2 class="text-4xl font-bold  text-zinc-900 dark:text-white ">Project-Ecommerce-System</h2>
           <div class="flex flex-wrap gap-4 mt-4">
-            <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">Java</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400">Java</span>
 
           </div>
           <h3 class="font-bold text-lg p-4 mt-2  text-zinc-900 dark:text-white ">Project Description</h3>
@@ -587,13 +755,21 @@ Gained practical skills in crafting smarter prompts to improve AI-generated resp
             <li>Implemented user authentication and payment integration for a seamless experience.</li>
             <li>Optimized component architecture and routing for efficient rendering.</li>
           </ul>
+
+          <div class="mt-6">
+            <a href="https://github.com/Sanskriti029/Project-Ecommerce-System" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center justify-center bg-accent text-white px-6 py-3 rounded-full hover:bg-accent-light transition-all duration-300 font-medium shadow-md hover:scale-105">
+              View Source Code
+            </a>
+          </div>
         </div>
         <!-- project 5 -->
-        <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+        <div
+          class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
           <h2 class="text-4xl font-bold  text-zinc-900 dark:text-white ">CGPA Analyzer</h2>
           <div class="flex flex-wrap gap-4 mt-4">
-            <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">JavaScript</span>
-            <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">PHP</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400">JavaScript</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400">PHP</span>
 
           </div>
           <h3 class="font-bold text-lg p-4 mt-2  text-zinc-900 dark:text-white ">Project Description</h3>
@@ -602,34 +778,52 @@ Gained practical skills in crafting smarter prompts to improve AI-generated resp
             <li>Provided actionable insights to improve semester-wise outcomes.</li>
             <li>Developed a web-based tool for tracking and analyzing academic performance.</li>
           </ul>
+
+          <div class="mt-6">
+            <a href="https://github.com/Sanskriti029/CGPA-Analyzer" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center justify-center bg-accent text-white px-6 py-3 rounded-full hover:bg-accent-light transition-all duration-300 font-medium shadow-md hover:scale-105">
+              View Source Code
+            </a>
+          </div>
         </div>
         <!-- project 6 -->
-         <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+        <div
+          class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
           <h2 class="text-4xl font-bold  text-zinc-900 dark:text-white ">Cartify</h2>
           <div class="flex flex-wrap gap-4 mt-4">
-            <span class="bg-sky-500 rounded-full p-4 border-b-emerald-400">HTML</span>
-            <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400"> CSS</span>
-            <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400"> JavaScript</span>
-            <span class="bg-amber-800 rounded-full p-4 border-b-emerald-400"> APIs</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400">HTML</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400"> CSS</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400"> JavaScript</span>
+            <span class="bg-accent-light rounded-full p-4 border-b-emerald-400"> APIs</span>
           </div>
           <h3 class="font-bold text-lg p-4 mt-2  text-zinc-900 dark:text-white ">Project Description</h3>
           <ul class="list-disc  text-zinc-900 dark:text-white ">
-            <li> Built a responsive e-commerce shopping cart application with product management and checkout features.</li>
+            <li> Built a responsive e-commerce shopping cart application with product management and checkout features.
+            </li>
             <li>Implemented user authentication and data persistence for a seamless experience.</li>
             <li>Optimized component architecture and routing for efficient rendering.</li>
           </ul>
+
+          <div class="mt-6">
+            <a href="https://github.com/Sanskriti029/Cartify" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center justify-center bg-accent text-white px-6 py-3 rounded-full hover:bg-accent-light transition-all duration-300 font-medium shadow-md hover:scale-105">
+              View Source Code
+            </a>
+          </div>
+
+          https://github.com/Sanskriti029/ai-healthcare
         </div>
         <!-- project7 -->
-
-      </div>
-      </div>
+        
+        </div>
 
     </section>
 
     <section id="Experience" class="p-24 py-24 bg-zinc-50 dark:bg-zinc-900/40">
-      <h1 class="text-4xl font-extrabold text-center mb-12 text-zinc-900 dark:text-white"">Experience</h1>
+      <h1 class="text-4xl font-extrabold text-center mb-12 text-zinc-900 dark:text-white">Experience</h1>
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+        <div
+          class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
           <h1 class="p-2 text-zinc-900 dark:text-white text-2xl font-bold">
             Frontend Development Intern
           </h1>
@@ -645,28 +839,29 @@ Gained practical skills in crafting smarter prompts to improve AI-generated resp
             <li>Contributing to frontend optimization, layout responsiveness, and improved user experience</li>
             <li>Gaining hands-on experience in professional software development workflows and team collaboration</li>
           </ul>
-        
-      </div>
-      <div class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <h1 class="p-2 text-zinc-900 dark:text-white text-2xl font-bold">
-          Open Source Contributor
-        </h1>
-        <p class="p-2 text-zinc-900 dark:text-white font-medium text-lg">
-          GirlScript Summer of Code (GSSoC)
-        </p>
-        <p class="p-2 text-zinc-900 dark:text-white">
-         Duration: May 2026- Present
-        </p>
-        <ul class="list-disc text-zinc-900 dark:text-white">
-          <li>Contributed to open-source projects by developing features, fixing bugs, and improving project
-            functionality
-          </li>
-          <li>Collaborated with mentors and contributors using Git, GitHub, and version control workflows</li>
-          <li>Enhanced code quality through debugging, documentation improvements, and issue resolution</li>
-          <li>Strengthened understanding of collaborative software development and open-source contribution practices
-          </li>
-        </ul>
-      </div>
+
+        </div>
+        <div
+          class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+          <h1 class="p-2 text-zinc-900 dark:text-white text-2xl font-bold">
+            Open Source Contributor
+          </h1>
+          <p class="p-2 text-zinc-900 dark:text-white font-medium text-lg">
+            GirlScript Summer of Code (GSSoC)
+          </p>
+          <p class="p-2 text-zinc-900 dark:text-white">
+            Duration: May 2026- Present
+          </p>
+          <ul class="list-disc text-zinc-900 dark:text-white">
+            <li>Contributed to open-source projects by developing features, fixing bugs, and improving project
+              functionality
+            </li>
+            <li>Collaborated with mentors and contributors using Git, GitHub, and version control workflows</li>
+            <li>Enhanced code quality through debugging, documentation improvements, and issue resolution</li>
+            <li>Strengthened understanding of collaborative software development and open-source contribution practices
+            </li>
+          </ul>
+        </div>
     </section>
 
     <section id="skills"
@@ -954,125 +1149,132 @@ Gained practical skills in crafting smarter prompts to improve AI-generated resp
         animation: fillBar 1.8s ease-out forwards;
       }
     </style>
-    </section>
+
     <section id="contact" class="p-24 py-24 bg-zinc-50 dark:bg-zinc-900/40">
       <div class="max-w-6xl mx-auto px-6 py-12">
-        <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white mb-8">Contact Me</h2>
-        <p class="reveal d2 text-lg text-zinc-500 dark:text-zinc-400 mb-8">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out to me through any of the platforms below!</p>
+        <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white mb-8">Contact Me
+        </h2>
+        <p class="reveal d2 text-lg text-zinc-500 dark:text-zinc-400 mb-8">I'm always open to discussing new projects,
+          creative ideas, or opportunities to be part of your visions. Feel free to reach out to me through any of the
+          platforms below!</p>
         <div class="flex flex-wrap gap-4">
-          <a href="mailto:sanskritikhandelwal029@gmail.com" class="reveal d3 bg-accent text-white hover:bg-accent-hover py-2 px-4 rounded-md transition duration-300"><span> <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              </span>
-              </span>Email Me</a>
-          <a href="https://www.linkedin.com/in/sanskritikhandelwal029" target="_blank" class="reveal d4 bg-blue-600 text-white hover:bg-blue-700 py-2 px-4 rounded-md transition duration-300"><span><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></span>LinkedIn</a>
+          <a href="mailto:sanskritikhandelwal029@gmail.com"
+            class="reveal d3 bg-accent text-white hover:bg-accent-hover py-2 px-4 rounded-md transition duration-300"><span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </span>
+            </span>Email Me</a>
+          <a href="https://www.linkedin.com/in/sanskritikhandelwal029" target="_blank"
+            class="reveal d4 bg-blue-600 text-white hover:bg-blue-700 py-2 px-4 rounded-md transition duration-300"><span><svg
+                class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg></span>LinkedIn</a>
 
-          <a href="https://github.com/Sanskriti029" target="_blank" class="reveal d5 bg-blue-400 text-white hover:bg-blue-500 py-2 px-4 rounded-md transition duration-300"><span><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></span>GitHub</a>
+          <a href="https://github.com/Sanskriti029" target="_blank"
+            class="reveal d5 bg-blue-400 text-white hover:bg-blue-500 py-2 px-4 rounded-md transition duration-300"><span><svg
+                class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg></span>GitHub</a>
         </div>
 
       </div>
       <div>
-        <form id="contact-form" onsubmit="handleSubmit(event)">
-             <form class="space-y-6">
+        <div class="max-w-6xl mx-auto px-6 py-12">
+          <form id="contact-form" onsubmit="handleSubmit(event)">
+            <form class="space-y-6">
 
-  <!-- Name -->
-  <div class="flex flex-col gap-2">
-    <label for="name" class="text-sm font-medium text-zinc-700 dark:text-zinc-300 mt-2">
-      Your Name
-    </label>
+              <!-- Name -->
+              <div class="flex flex-col gap-2">
+                <label for="name" class="text-sm font-medium text-zinc-700 dark:text-zinc-300 mt-2">
+                  Your Name
+                </label>
 
-    <input
-      type="text"
-      id="name"
-      name="name"
-      placeholder="John Doe"
-      required
-      class="w-full rounded-xl border border-zinc-300 dark:border-zinc-700 
+                <input type="text" id="name" name="name" placeholder="Your name" required class="w-full rounded-xl border border-zinc-300 dark:border-zinc-700 
              bg-white dark:bg-zinc-900 
              px-4 py-3 
              text-zinc-900 dark:text-white
              placeholder:text-zinc-400
              focus:outline-none focus:ring-2 focus:ring-accent
-             transition-all"
-    />
-  </div>
+             transition-all" />
+              </div>
 
-  <!-- Email -->
-  <div class="flex flex-col gap-2">
-    <label for="email" class="text-sm font-medium text-zinc-700 dark:text-zinc-300 mt-2">
-      Email Address
-    </label>
+              <!-- Email -->
+              <div class="flex flex-col gap-2">
+                <label for="email" class="text-sm font-medium text-zinc-700 dark:text-zinc-300 mt-2">
+                  Email Address
+                </label>
 
-    <input
-      type="email"
-      id="email"
-      name="email"
-      placeholder="john@example.com"
-      required
-      class="w-full rounded-xl border border-zinc-300 dark:border-zinc-700 
+                <input type="email" id="email" name="email" placeholder="Your email address" required class="w-full rounded-xl border border-zinc-300 dark:border-zinc-700 
              bg-white dark:bg-zinc-900 
              px-4 py-3 
              text-zinc-900 dark:text-white
              placeholder:text-zinc-400
              focus:outline-none focus:ring-2 focus:ring-accent
-             transition-all"
-    />
-  </div>
+             transition-all" />
+              </div>
 
-  <!-- Message -->
-  <div class="flex flex-col gap-2">
-    <label for="message" class="text-sm font-medium text-zinc-700 dark:text-zinc-300 mt-2">
-      Your Message
-    </label>
+              <!-- Message -->
+              <div class="flex flex-col gap-2">
+                <label for="message" class="text-sm font-medium text-zinc-700 dark:text-zinc-300 mt-2">
+                  Your Message
+                </label>
 
-    <textarea
-      id="message"
-      name="message"
-      rows="5"
-      placeholder="Let's work together on something amazing!"
-      required
-      class="w-full rounded-xl border border-zinc-300 dark:border-zinc-700 
+                <textarea id="message" name="message" rows="5" placeholder="Let's work together on something amazing!"
+                  required class="w-full rounded-xl border border-zinc-300 dark:border-zinc-700 
              bg-white dark:bg-zinc-900 
               px-4 py-3 p-2 
              text-zinc-900 dark:text-white
              placeholder:text-zinc-400
              focus:outline-none focus:ring-2 focus:ring-accent
              resize-none
-             transition-all"
-    ></textarea>
-  </div>
+             transition-all"></textarea>
+              </div>
 
-  <!-- Button -->
-  <button
-    type="submit"
-    class="shimmer bg-accent hover:bg-accent-light 
+              <!-- Button -->
+              <button type="submit" class="shimmer bg-accent hover:bg-accent-light 
            text-white font-medium 
            px-6 py-3 rounded-xl 
-           transition-all duration-300 mt-4"
-  >
-    Send Message 🚀
-  </button>
-</form>
+           transition-all duration-300 mt-4">
+                Send Message 🚀
+              </button>
+            </form>
+        </div>
     </section>
   </main>
-  <footer class=" items-center justify-center m-3 p-5 border-t border-zinc-300 dark:border-zinc-700">
-    <p>&copy; 2025 Sanskriti | Third Year CS Student 🎓</p>
-        <p style="margin-top: 0.5rem; opacity: 0.8;">Always learning, always growing 🌱</p>
-        <div class="flex flex-row gap-4 mt-4 border-2 p-4 rounded-lg border-zinc-300 dark:border-zinc-700">
-            <a href="mailto:sanskriti.24bce11025@vitbhopal.ac.in" id="social-link"><span>  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              </span> Email me
-          </a>
+  <div class="max-w-6xl mx-auto px-6 py-12">
 
-            <a href="https://github.com/Sanskriti029" class="social-link"><span> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></span>Github</a>
+    <footer class="  border-t border-zinc-300 dark:border-zinc-700">
+      <p>&copy; 2025 Sanskriti | Third Year CS Student 🎓</p>
+      <p style="margin-top: 0.5rem; opacity: 0.8;">Always learning, always growing 🌱</p>
+      <div
+        class="flex flex-row gap-4 mt-4 border-2 p-4 rounded-lg border-zinc-300 dark:border-zinc-700 px-6 py-4 justify-center items-center">
+        <a href="mailto:sanskriti.24bce11025@vitbhopal.ac.in" id="social-link"><span> <svg class="w-4 h-4" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </span> Email me
+        </a>
 
-            <a href="https://www.linkedin.com/in/sanskritikhandelwal029" class="social-link"><span><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></span>LinkedIn</a>
+        <a href="https://github.com/Sanskriti029" class="social-link"><span> <svg class="w-4 h-4" fill="currentColor"
+              viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg></span>Github</a>
 
-
-            
-<!-- script for form responses  -->
- <!-- mobile responsve for certificates experience and  -->
-        </div>
-  </footer>
-
-<script>
+        <a href="https://www.linkedin.com/in/sanskritikhandelwal029" class="social-link"><span><svg class="w-4 h-4"
+              fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg></span>LinkedIn</a>
+      </div>
+    </footer>
+  </div>
+  <!-- <script>
 
   const html = document.documentElement;
   const moonIcon = document.getElementById("moonIcon");
@@ -1108,8 +1310,8 @@ Gained practical skills in crafting smarter prompts to improve AI-generated resp
     menuIcon.classList.toggle("hidden");
     closeIcon.classList.toggle("hidden");
   }
-</script>
-
+</script> -->
+  <script src="script.js"></script>
 </body>
 
 </html>
