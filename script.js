@@ -86,3 +86,61 @@ mobileLinks.forEach((link) => {
     document.getElementById("mobileMenu").classList.add("hidden");
   });
 });
+
+
+// EmailJS form handling
+
+// Initialize EmailJS
+  emailjs.init({
+    publicKey: "UImI2Ej0EbysGNuI7",
+  limitRate: {
+    throttle: 5000,
+  },
+});
+
+
+
+const contactForm = document.getElementById("contact-form");
+const formStatus = document.getElementById("form-status");
+const submitBtn = document.getElementById("submitBtn");
+
+contactForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  submitBtn.disabled = true;
+  submitBtn.innerText = "Sending...";
+
+  const templateParams = {
+    from_name: document.getElementById("name").value,
+    from_email: document.getElementById("email").value,
+    message: document.getElementById("message").value,
+  };
+
+  try {
+    await emailjs.send(
+      "service_omq3ccf",
+      "template_n7cemfj",
+      templateParams
+    );
+
+    formStatus.textContent = "Message sent successfully 🚀";
+    formStatus.className = "text-green-500 mt-3";
+
+    contactForm.reset();
+
+  } catch (error) {
+    console.error(error);
+
+    formStatus.textContent = "Something went wrong ❌";
+    formStatus.className = "text-red-500 mt-3";
+  }
+
+  submitBtn.disabled = false;
+  submitBtn.innerText = "Send Message 🚀";
+});
+
+// const honeypot = document.getElementById("website").value;
+
+// if (honeypot) {
+//   return;
+// }
