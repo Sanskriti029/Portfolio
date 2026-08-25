@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sanskriti</title>
+  <title>Sanskriti Khandelwal | Full Stack Developer</title>
+<meta name="description"
+content="Portfolio of Sanskriti Khandelwal, Full Stack Developer, ML Enthusiast and Open Source Contributor">
   <link rel="stylesheet" href="style.css" />
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -311,24 +313,37 @@
       .animate-fillBar {
         animation: fillBar 1.8s ease-out forwards;
       }
-   
+   .card-h{
+    transition: all .35s ease;
+}
+
+.card-h:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,.12);
+}
   </style>
 </head>
 
 <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
+  <div
+id="progressBar"
+class="fixed top-0 left-0 h-1 bg-accent z-[9999]"
+style="width:0%">
+</div>
   <div id="cursorGlow"></div>
   <header id="mainHeader" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
     <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
       <a href="#hero" class="font-display font-bold text-xl tracking-tight relative z-10">
-        <span class="text-accent">Sanskriti</span>
+        <span class="text-accent">Sanskriti Khandelwal</span>
       </a>
 
       <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
-        <li><a href="#services"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Services</a>
-        </li>
+       
         <li><a href="#about"
             class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">About</a>
+        </li>
+        <li><a href="#skills"
+            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Skills</a>
         </li>
         <li><a href="#Projects"
             class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Projects</a>
@@ -339,13 +354,15 @@
         <li><a href="#Certifications"
             class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Certificates</a>
         </li>
-        <li><a href="#skills"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Skills</a>
+         <li><a href="#services"
+            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Services</a>
         </li>
         <li><a href="#contact"
             class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Contact</a>
         </li>
+       
       </ul>
+
 
       <div class="flex items-center gap-3">
         <!-- dark toggle -->
@@ -366,6 +383,11 @@
           </svg>
 
         </button>
+         <a
+ href="./Sanskriti_Khandelwal_Resume.pdf"
+ class="bg-accent text-white px-5 py-2 rounded-full">
+ Resume
+</a>
         <!-- hire me -->
         <a href="#contact"
           class="hidden md:inline-flex items-center gap-2 shimmer bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-light transition-colors">
@@ -396,8 +418,7 @@
     <div id="mobileMenu"
       class="hidden md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900">
       <ul class="flex flex-col px-6 py-5 gap-4 text-sm font-medium" role="list">
-        <li><a href="#services"
-            class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Services</a></li>
+        
             <li><a href="#about"
             class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">About</a></li>
         <li><a href="#Projects"
@@ -409,6 +430,12 @@
             class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Certificates</a></li>
         <li><a href="#Experience"
             class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Experience</a></li>
+           <li class="pt-2 border-t border-zinc-100 dark:border-zinc-900">
+  <a href="#services"
+     class="block text-zinc-700 dark:text-zinc-300 hover:text-accent">
+     Services
+  </a>
+</li>
         <li class="pt-2 border-t border-zinc-100 dark:border-zinc-900">
           <a href="#contact"
             class="inline-flex shimmer bg-accent text-white font-medium text-sm px-5 py-2.5 rounded-full">Hire me →</a>
@@ -417,152 +444,650 @@
     </div>
   </header>
   <main>
-    <section id="home" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
-      <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true">
-      </div>
-      <div
-        class="absolute bottom-1/4 left-0 w-64 h-64 bg-zinc-200/50 dark:bg-zinc-800/30 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"></div>
-      <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
+ <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
 
-          <div>
-            <p class="reveal text-sm font-medium text-[#ff793f] tracking-widest uppercase mb-4">
-              Available for work
-            </p>
-            <h1
-              class="reveal d1 font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-zinc-900 dark:text-white mb-6">
-              Hi, I'm
-              <span id="typingText" class="text-[#ff793f]"></span>
-            </h1>
-            <p>
-              Learner,<span class="font-medium text-zinc-700 dark:text-zinc-300 "> web developer & frontend
-                developer.</span> I design and build digital products that people love to use — fast, clean, and
-              accessible.
-            </p>
-            <div class="reveal d3 flex flex-wrap gap-4">
-              <a href="#Projects"
-                class="shimmer inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-colors text-sm mt-4">
-                View My Work
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </a>
-              <a href="#contact"
-                class="inline-flex items-center gap-2 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors text-sm mt-4">Get
-                in touch</a>
-              </a>
-            </div>
-            <div class="reveal d4 flex gap-8 mt-14 pt-8 border-t border-zinc-100 dark:border-zinc-900">
-              <div>
-                <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">4+</p>
-                <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Projects done</p>
-              </div>
-              <div>
-                <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">10+</p>
-                <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Skills</p>
-              </div>
-              <!-- <div><p class="font-display font-bold text-3xl text-zinc-900 dark:text-white"></p><p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Experience</p></div> -->
-            </div>
-          </div>
-             
-         
-          <div class="reveal d2 flex justify-center md:justify-end">
-            <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
-              <div class="pf w-full h-full rounded-3xl">
-                <img src="./images/Screenshot 2026-08-25 205648.png" alt="Sanskriti" loading="eager">
-              </div>
-              <div
-                class="absolute -bottom-4 -left-4 bg-accent text-white font-display font-bold text-sm px-4 py-2.5 rounded-2xl shadow-lg">
-                Open to projects</div>
-            </div>
-          </div>
+  <div class="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-orange-100 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950"></div>
 
-            <div class="reveal d3 w-full max-w-md mx-auto md:mx-0">
-              <div class="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-4 shadow-sm">
-                <div class="flex items-center gap-2 mb-3">
-                  <svg class="w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l2-2a5 5 0 0 0-7.07-7.07l-1.14 1.14"/><path d="M14 11a5 5 0 0 0-7.54-.54l-2 2a5 5 0 0 0 7.07 7.07l1.14-1.14"/></svg>
-                  <p class="font-display font-bold text-lg text-zinc-900 dark:text-white">Find me online</p>
-                </div>
-                <div class="grid grid-cols-2 gap-2">
-                  <a href="https://leetcode.com/u/SYkjY5cQzg/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-xl bg-zinc-50 dark:bg-zinc-900 px-3 py-2.5 text-sm font-medium text-zinc-700 dark:text-zinc-300 transition hover:bg-[#ff793f] hover:text-white">
-                    <span>LeetCode</span><span aria-hidden="true">↗</span>
-                  </a>
-                  <a href="https://github.com/Sanskriti029" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-xl bg-zinc-50 dark:bg-zinc-900 px-3 py-2.5 text-sm font-medium text-zinc-700 dark:text-zinc-300 transition hover:bg-[#ff793f] hover:text-white">
-                    <span>GitHub</span><span aria-hidden="true">↗</span>
-                  </a>
-                  <a href="https://codeforces.com/profile/Sanskriti029" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-xl bg-zinc-50 dark:bg-zinc-900 px-3 py-2.5 text-sm font-medium text-zinc-700 dark:text-zinc-300 transition hover:bg-[#ff793f] hover:text-white">
-                    <span>Codeforces</span><span aria-hidden="true">↗</span>
-                  </a>
-                  <!-- <a href="https://www.codingninjas.com/codestudio/profile/5e7f0b1c" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-xl bg-zinc-50 dark:bg-zinc-900 px-3 py-2.5 text-sm font-medium text-zinc-700 dark:text-zinc-300 transition hover:bg-[#ff793f] hover:text-white">
-                    <span>Coding Ninjas</span><span aria-hidden="true">↗</span>
-                  </a> -->
-                  <a href="https://www.linkedin.com/in/sanskritikhandelwal029/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-xl bg-zinc-50 dark:bg-zinc-900 px-3 py-2.5 text-sm font-medium text-zinc-700 dark:text-zinc-300 transition hover:bg-[#ff793f] hover:text-white">
-                    <span>LinkedIn</span><span aria-hidden="true">↗</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <div>
+
+        <span
+          class="inline-flex items-center px-4 py-2 rounded-full bg-orange-100 text-orange-600 text-sm font-semibold mb-6">
+          🚀 Available for Internships & Projects
+        </span>
+
+        <h1 class="text-6xl lg:text-7xl font-bold leading-tight">
+          Hi, I'm
+          <span class="gradient-text">
+            Sanskriti Khandelwal
+          </span>
+        </h1>
+
+        <h2 class="text-2xl mt-4 font-medium text-zinc-600 dark:text-zinc-300">
+          Full Stack Developer • ML Enthusiast • Open Source Contributor
+        </h2>
+
+        <p class="mt-8 text-lg leading-relaxed text-zinc-500 max-w-xl">
+          Computer Science student at VIT Bhopal building scalable web
+          applications, AI-powered solutions, and modern digital experiences
+          using React, Flask, Python, and Machine Learning.
+        </p>
+
+        <div class="flex flex-wrap gap-4 mt-10">
+
+          <a href="./Sanskriti_Khandelwal_Resume.pdf"
+            class="bg-accent text-white px-8 py-4 rounded-full font-semibold hover:scale-105 transition">
+
+            Download Resume
+          </a>
+
+          <a href="#Projects"
+            class="border border-zinc-300 px-8 py-4 rounded-full font-semibold hover:bg-zinc-100 dark:hover:bg-zinc-800 transition">
+
+            View Projects
+          </a>
+
         </div>
+
       </div>
-    </section>
-    <section id="about" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
+
+      <div class="flex justify-center">
+
+        <div class="relative">
+
+          <div
+            class="absolute inset-0 bg-accent blur-[120px] opacity-20 rounded-full">
+          </div>
+
+          <img
+            src="./images/profile.png"
+            class="relative w-96 h-96 object-cover rounded-[40px] border-4 border-white shadow-2xl"
+            alt="Sanskriti">
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="py-20">
+
+<div class="max-w-6xl mx-auto px-6">
+
+<div class="grid md:grid-cols-4 gap-8">
+
+<div class="text-center">
+<h3 class="counter text-5xl font-bold text-accent">4+</h3>
+<p class="mt-2 text-zinc-500">Projects Built</p>
+</div>
+
+<div class="text-center">
+<h3 class="counter text-5xl font-bold text-accent">15+</h3>
+<p class="mt-2 text-zinc-500">Certificates</p>
+</div>
+
+<div class="text-center">
+<h3 class="counter text-5xl font-bold text-accent">300+</h3>
+<p class="mt-2 text-zinc-500">Problems Solved</p>
+</div>
+
+<div class="text-center">
+<h3 class="counter text-5xl font-bold text-accent">9.11</h3>
+<p class="mt-2 text-zinc-500">CGPA</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section id="about" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
+  <div class="max-w-5xl mx-auto px-6">
+
+    <!-- About Header -->
+    <div class="max-w-3xl">
+      <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">
+        About me
+      </p>
+
+      <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white leading-tight mb-6">
+        A bit about who I am
+      </h2>
+
+      <p class="reveal d2 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
+        Hey there! 👋 I'm Sanskriti Khandelwal, a third-year Computer Science
+        student at VIT Bhopal University with a CGPA of 9.1, passionate about
+        creating innovative solutions and learning new technologies every day.
+      </p>
+
+      <p class="reveal d3 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-10">
+        My journey in tech started with curiosity and has grown into a genuine
+        love for problem-solving through code. I'm constantly exploring new
+        frameworks, building projects, and collaborating with fellow developers
+        to expand my skills and contribute to the tech community. Whether it's
+        developing web applications, diving into machine learning, or
+        contributing to open-source projects, I'm always eager to take on new
+        challenges and make an impact in the world of technology.
+      </p>
+    </div>
+
+    <!-- Academic Qualification -->
+    <div class="reveal d4 mb-10">
+
+      <p class="text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-4">
+        Academic Qualification
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-4">
+
+        <!-- B.Tech -->
+        <div class="rounded-2xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900/60 p-5 shadow-sm hover:shadow-md transition">
+
+          <div class="flex items-start justify-between gap-4">
+
+            <div>
+              <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#ff793f] mb-1">
+                Bachelor of Technology
+              </p>
+
+              <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white">
+                Computer Science &amp; Engineering
+              </h3>
+            </div>
+
+            <span class="shrink-0 inline-flex items-center rounded-full bg-[#ff793f]/10 text-[#ff793f] px-2.5 py-1 text-xs font-semibold">
+              9.1 CGPA
+            </span>
+
+          </div>
+
+          <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-300">
+            VIT Bhopal University
+          </p>
+
+          <p class="mt-2 text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            3rd Year • Focused on software development, data structures,
+            algorithms, and modern computing technologies.
+          </p>
+
+        </div>
+
+        <!-- Senior Secondary -->
+        <div class="rounded-2xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900/60 p-5 shadow-sm hover:shadow-md transition">
+
+          <div class="flex items-start justify-between gap-4">
+
+            <div>
+              <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 mb-1">
+                Senior Secondary
+              </p>
+
+              <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white">
+                Science Stream
+              </h3>
+            </div>
+
+            <span class="shrink-0 inline-flex items-center rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 px-2.5 py-1 text-xs font-semibold">
+              Science
+            </span>
+
+          </div>
+
+          <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
+            Built a strong foundation in mathematics, physics, and
+            problem-solving fundamentals that continue to support my
+            technical journey.
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="reveal d5">
+
+      <p class="text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-4">
+        Stack &amp; Tools
+      </p>
+
+      <div class="flex flex-wrap gap-2" role="list" aria-label="Skills">
+
+        <span role="listitem"
+          class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent transition">
+          HTML / CSS
+        </span>
+
+        <span role="listitem"
+          class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent transition">
+          Tailwind CSS
+        </span>
+
+        <span role="listitem"
+          class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent transition">
+          JavaScript
+        </span>
+
+        <span role="listitem"
+          class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent transition">
+          React.js
+        </span>
+
+        <span role="listitem"
+          class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent transition">
+          Node.js
+        </span>
+
+        <span role="listitem"
+          class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent transition">
+          Python
+        </span>
+
+        <span role="listitem"
+          class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent transition">
+          API Design
+        </span>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+     <section id="skills"class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
       <div class="max-w-6xl mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="mb-14">
+          
+          <p class="text-lg font-semibold text-[#ff793f]">My Skills</p>
+          <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Skills
+          </h2>
+        </div>
+      <!-- Programming Languages -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-accent hover:border-accent transition-all duration-300">
+          <span>💻</span> Programming Languages
+        </h3>
 
-          <div class="reveal order-2 md:order-1">
-            <div class="pf w-full aspect-square max-w-sm mx-auto rounded-3xl">
-              <img src="./images/Screenshot 2026-08-25 205648.png" alt="Sanskriti" loading="lazy">
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Card -->
+          <div
+            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm hover:border-accent transition-all duration-300">
+            <span class="text-3xl">⚙️</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+              C++
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Advanced
+            </p>
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+               <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div> 
+            </div> -->
+          </div>
+          <div
+            class="reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+            <span class="text-3xl">☕</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+              Java
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Intermediate
+            </p>
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+               <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div> 
+            </div> -->
+          </div>
+          <div
+            class="  reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+            <span class="text-3xl">🐍</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+              Python
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Intermediate
+            </p>
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+               <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div> 
+            </div> -->
           </div>
 
-          <div class="order-1 md:order-2">
-            <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">About me</p>
-            <h2
-              class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white leading-tight mb-6">
-              A bit about<br>who I am</h2>
-            <p class="reveal d2 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
-              Hey there! 👋 I'm  Sanskriti Khandelwal a third-year computer science student with a passion for creating innovative
-              solutions and learning new technologies every day.
+          <!-- Card -->
+          <div
+            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+            <span class="text-3xl">⚡</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+              JavaScript
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Advanced
             </p>
-            <p class="reveal d3 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-8">
-              My journey in tech started with curiosity and has grown into a genuine love for problem-solving
-              through code. I'm constantly exploring new frameworks, building projects, and collaborating with
-              fellow developers to expand my skills and contribute to the tech community. Whether it's developing web
-              applications,
-              diving into machine learning, or contributing to open-source projects, I'm always eager to take on new
-              challenges and make an impact in the world of technology.
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
+            </div> -->
+          </div>
+
+          <!-- Card -->
+          <div
+            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+            <span class="text-3xl">💾</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+              SQL
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Intermediate
             </p>
-            <div class="reveal d4">
-              <p class="text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-3">Stack &amp;
-                tools</p>
-              <div class="flex flex-wrap gap-2" role="list" aria-label="Skills">
-                <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Tailwind
-                  CSS</span>
-                <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">React.js</span>
-                <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Node.js</span>
-                <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">HTML
-                  / CSS</span>
-                <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">JavaScript</span>
-                <!-- <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent"></span> -->
-                <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">API
-                  Design</span>
-                <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Python</span>
-              </div>
-            </div>
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div class="h-full w-[70%] bg-accent-light animate-fillBar rounded-full"></div>
+            </div> -->
           </div>
 
         </div>
       </div>
+
+      <!-- Web Development -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-accent">
+          <span>🎨</span> Web Development
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Card -->
+          <div
+            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+            <span class="text-3xl">🌐</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+              HTML/CSS
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Advanced
+            </p>
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
+            </div> -->
+          </div>
+
+          <!-- Card -->
+          <div
+            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+            <span class="text-3xl">⚛️</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+              React
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Intermediate
+            </p>
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div class="h-full w-[70%] bg-accent-light animate-fillBar rounded-full"></div>
+            </div> -->
+          </div>
+
+          <!-- Card -->
+          <div
+            class=" reveal d1 font-displaycard-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+            <span class="text-3xl">🟢</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+              Node.js
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Intermediate
+            </p>
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div class="h-full w-[70%] bg-accent-light animate-fillBar rounded-full"></div>
+            </div> -->
+          </div>
+<!-- card -->
+          <div
+            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+            <span class="text-3xl">🎨</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+              Tailwind CSS
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Intermediate
+            </p>
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div class="h-full w-[70%] bg-accent-light animate-fillBar rounded-full"></div>
+            </div> -->
+          </div>
+          
+         
+
+        </div>
+      </div>
+      <!-- Tools & Technologies -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-accent">
+          <span>🛠️</span> Tools & Technologies
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Git -->
+          <div
+            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+            <span class="text-3xl">🐙</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+              Git & GitHub
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Advanced
+            </p>
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
+            </div> -->
+          </div>
+
+          <!-- React -->
+          <div
+            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+            <span class="text-3xl">🎯</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+              React
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Advanced
+            </p>
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
+            </div> -->
+          </div>
+
+          <!-- VS Code -->
+          <div
+            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+            <span class="text-3xl">💻</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+              VS Code
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Advanced
+            </p>
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
+            </div> -->
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Ai & Ml -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-accent">
+          <span>🤖</span> Artificial Intelligence & Machine Learning
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Python -->
+          <div
+            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+            <span class="text-3xl">🐍</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+              Python
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Beginner
+            </p>
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div class="h-full w-[40%] bg-accent-light animate-fillBar rounded-full"></div>
+            </div> -->
+          </div>
+
+          <!-- Gen AI -->
+          <div
+            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+            <span class="text-3xl">✨</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+              Generative AI
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Intermediate
+            </p>
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div class="h-full w-[70%] bg-accent-light animate-fillBar rounded-full"></div>
+            </div> -->
+          </div>
+
+          <!-- Prompt Engineering -->
+          <div
+            class="  reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+            <span class="text-3xl">🧠</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+              Prompt Engineering
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Beginner
+            </p>
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
+            </div> -->
+          </div>
+
+        </div>
+      </div>
+      <!-- Databases -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-accent">
+          <span>🤖</span> Databases
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Python -->
+          <div
+            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+            <span class="text-3xl">🐬</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+              MySQL
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Intermediate
+            </p>
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div class="h-full w-[40%] bg-accent-light animate-fillBar rounded-full"></div>
+            </div> -->
+          </div>
+
+          <!-- Gen AI -->
+          <div
+            class="  reveal d1 font-display  card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+            <span class="text-3xl">🪶</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+              Sqlite
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Beginner
+            </p>
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div class="h-full w-[70%] bg-accent-light animate-fillBar rounded-full"></div>
+            </div> -->
+          </div>
+
+          <!-- Prompt Engineering -->
+          <div
+            class="  reveal d1 font-display  card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
+            <span class="text-3xl">🍃</span>
+
+            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
+             MongoDB
+            </h4>
+
+            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+              Beginner
+            </p>
+
+            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div class="h-full w-[40%] bg-accent animate-fillBar rounded-full"></div>
+            </div> -->
+          </div>
+
+        </div>
+      </div>
+</div>
     </section>
+
     <!-- Services Section -->
     <section id="services" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
       <div class="max-w-6xl mx-auto px-6">
@@ -623,8 +1148,139 @@
         </div>
       </div>
     </section>
-  
 
+
+<section id="profiles" class="py-24">
+
+<div class="max-w-6xl mx-auto px-6">
+
+<h2 class="text-5xl font-bold mb-14">
+Coding Profiles
+</h2>
+
+<div class="grid md:grid-cols-4 gap-6">
+
+<a href="https://leetcode.com/u/SYkjY5cQzg/" class="card-h p-8 rounded-2xl border text-center">
+<h3 class="text-xl font-bold">LeetCode</h3>
+<p class="mt-3 text-zinc-500">300+ Problems</p>
+</a>
+
+<a href="https://codeforces.com/profile/sanskritikhandelwal029" class="card-h p-8 rounded-2xl border text-center">
+<h3 class="text-xl font-bold">Codeforces</h3>
+<p class="mt-3 text-zinc-500">Competitive Programming</p>
+</a>
+
+<a href="https://github.com/Sanskriti029" class="card-h p-8 rounded-2xl border text-center">
+<h3 class="text-xl font-bold">GitHub</h3>
+<p class="mt-3 text-zinc-500">Open Source Contributions</p>
+</a>
+
+<a href="https://www.linkedin.com/in/sanskritikhandelwal029/" class="card-h p-8 rounded-2xl border text-center">
+<h3 class="text-xl font-bold">LinkedIn</h3>
+<p class="mt-3 text-zinc-500">Professional Network</p>
+</a>
+
+</div>
+
+</div>
+</section>
+<section id="github" class="py-24">
+
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="text-5xl font-bold text-center mb-14">
+      GitHub Activity
+    </h2>
+
+    <div class="grid md:grid-cols-4 gap-6">
+
+      <div class="card-h p-8 rounded-3xl border text-center">
+        <h3 class="text-4xl font-bold text-accent">20+</h3>
+        <p class="mt-2">Repositories</p>
+      </div>
+
+      <div class="card-h p-8 rounded-3xl border text-center">
+        <h3 class="text-4xl font-bold text-accent">100+</h3>
+        <p class="mt-2">Commits</p>
+      </div>
+
+      <div class="card-h p-8 rounded-3xl border text-center">
+        <h3 class="text-4xl font-bold text-accent">5+</h3>
+        <p class="mt-2">Open Source PRs</p>
+      </div>
+
+      <div class="card-h p-8 rounded-3xl border text-center">
+        <h3 class="text-4xl font-bold text-accent">2026</h3>
+        <p class="mt-2">GSSoC Contributor</p>
+      </div>
+
+    </div>
+
+    <div class="mt-10 text-center">
+
+      <a href="https://github.com/Sanskriti029"
+         target="_blank"
+         class="inline-flex items-center gap-3 bg-accent text-white px-8 py-4 rounded-full font-semibold hover:scale-105 transition">
+
+        <i class="fab fa-github text-xl"></i>
+        Visit GitHub Profile
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <section  id="FeaturedProject"class="py-24">
+
+<div class="max-w-6xl mx-auto px-6">
+
+<h2 class="text-5xl font-bold mb-14">
+Featured Project
+</h2>
+
+<div
+class="grid lg:grid-cols-2 gap-12 items-center rounded-3xl p-10 border">
+
+<!-- <img
+src="./images/healthcare-project.png"
+class="rounded-3xl shadow-lg"> -->
+
+<div>
+
+<span class="text-accent font-semibold">
+Featured Project
+</span>
+
+<h3 class="text-4xl font-bold mt-3">
+Smart Healthcare Platform
+</h3>
+
+<p class="mt-6 text-zinc-500">
+AI-powered healthcare management platform featuring
+symptom triage, appointment booking,
+hospital discovery and role-based dashboards.
+</p>
+
+<ul class="mt-8 space-y-3">
+<li>✔ React + Flask Architecture</li>
+<li>✔ JWT Authentication</li>
+<li>✔ PDF Report Generation</li>
+<li>✔ Real-Time Notifications</li>
+<li>✔ Appointment Management</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</section>
     <!-- Projects Section -->
     <section id="Projects"class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
       <div class="max-w-6xl mx-auto px-6">
@@ -1258,389 +1914,6 @@
   </div>
 </section>
 
-     <section id="skills"class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="mb-14">
-          
-          <p class="text-lg font-semibold text-[#ff793f]">My Skills</p>
-          <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Skills
-          </h2>
-        </div>
-      <!-- Programming Languages -->
-      <div class="mb-12">
-        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-accent hover:border-accent transition-all duration-300">
-          <span>💻</span> Programming Languages
-        </h3>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <!-- Card -->
-          <div
-            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm hover:border-accent transition-all duration-300">
-            <span class="text-3xl">⚙️</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-              C++
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Advanced
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-               <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div> 
-            </div> -->
-          </div>
-          <div
-            class="reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
-            <span class="text-3xl">☕</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-              Java
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Intermediate
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-               <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div> 
-            </div> -->
-          </div>
-          <div
-            class="  reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
-            <span class="text-3xl">🐍</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-              Python
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Intermediate
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-               <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div> 
-            </div> -->
-          </div>
-
-          <!-- Card -->
-          <div
-            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
-            <span class="text-3xl">⚡</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-              JavaScript
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Advanced
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-              <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
-            </div> -->
-          </div>
-
-          <!-- Card -->
-          <div
-            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
-            <span class="text-3xl">💾</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-              SQL
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Intermediate
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-              <div class="h-full w-[70%] bg-accent-light animate-fillBar rounded-full"></div>
-            </div> -->
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Web Development -->
-      <div class="mb-12">
-        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-accent">
-          <span>🎨</span> Web Development
-        </h3>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <!-- Card -->
-          <div
-            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
-            <span class="text-3xl">🌐</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-              HTML/CSS
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Advanced
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-              <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
-            </div> -->
-          </div>
-
-          <!-- Card -->
-          <div
-            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
-            <span class="text-3xl">⚛️</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-              React
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Intermediate
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-              <div class="h-full w-[70%] bg-accent-light animate-fillBar rounded-full"></div>
-            </div> -->
-          </div>
-
-          <!-- Card -->
-          <div
-            class=" reveal d1 font-displaycard-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
-            <span class="text-3xl">🟢</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-              Node.js
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Intermediate
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-              <div class="h-full w-[70%] bg-accent-light animate-fillBar rounded-full"></div>
-            </div> -->
-          </div>
-<!-- card -->
-          <div
-            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
-            <span class="text-3xl">🎨</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-              Tailwind CSS
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Intermediate
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-              <div class="h-full w-[70%] bg-accent-light animate-fillBar rounded-full"></div>
-            </div> -->
-          </div>
-          
-         
-
-        </div>
-      </div>
-      <!-- Tools & Technologies -->
-      <div class="mb-12">
-        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-accent">
-          <span>🛠️</span> Tools & Technologies
-        </h3>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <!-- Git -->
-          <div
-            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
-            <span class="text-3xl">🐙</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-              Git & GitHub
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Advanced
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-              <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
-            </div> -->
-          </div>
-
-          <!-- React -->
-          <div
-            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
-            <span class="text-3xl">🎯</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-              React
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Advanced
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-              <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
-            </div> -->
-          </div>
-
-          <!-- VS Code -->
-          <div
-            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
-            <span class="text-3xl">💻</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-              VS Code
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Advanced
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-              <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
-            </div> -->
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Ai & Ml -->
-      <div class="mb-12">
-        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-accent">
-          <span>🤖</span> Artificial Intelligence & Machine Learning
-        </h3>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <!-- Python -->
-          <div
-            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
-            <span class="text-3xl">🐍</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-              Python
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Beginner
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-              <div class="h-full w-[40%] bg-accent-light animate-fillBar rounded-full"></div>
-            </div> -->
-          </div>
-
-          <!-- Gen AI -->
-          <div
-            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
-            <span class="text-3xl">✨</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-              Generative AI
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Intermediate
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-              <div class="h-full w-[70%] bg-accent-light animate-fillBar rounded-full"></div>
-            </div> -->
-          </div>
-
-          <!-- Prompt Engineering -->
-          <div
-            class="  reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
-            <span class="text-3xl">🧠</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-              Prompt Engineering
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Beginner
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-              <div class="h-full w-full bg-accent animate-fillBar rounded-full"></div>
-            </div> -->
-          </div>
-
-        </div>
-      </div>
-      <!-- Databases -->
-      <div class="mb-12">
-        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-accent">
-          <span>🤖</span> Databases
-        </h3>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <!-- Python -->
-          <div
-            class=" reveal d1 font-display card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
-            <span class="text-3xl">🐬</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-              MySQL
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Intermediate
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-              <div class="h-full w-[40%] bg-accent-light animate-fillBar rounded-full"></div>
-            </div> -->
-          </div>
-
-          <!-- Gen AI -->
-          <div
-            class="  reveal d1 font-display  card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
-            <span class="text-3xl">🪶</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-              Sqlite
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Beginner
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-              <div class="h-full w-[70%] bg-accent-light animate-fillBar rounded-full"></div>
-            </div> -->
-          </div>
-
-          <!-- Prompt Engineering -->
-          <div
-            class="  reveal d1 font-display  card-h bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
-            <span class="text-3xl">🍃</span>
-
-            <h4 class="font-bold text-xl mt-3 text-zinc-900 dark:text-white">
-             MongoDB
-            </h4>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-              Beginner
-            </p>
-
-            <!-- <div class="w-full h-2 bg-zinc-300 dark:bg-zinc-700 rounded-full overflow-hidden">
-              <div class="h-full w-[40%] bg-accent animate-fillBar rounded-full"></div>
-            </div> -->
-          </div>
-
-        </div>
-      </div>
-</div>
-    </section>
 
     <section id="contact" class=" py-24 bg-zinc-50 dark:bg-zinc-900/40">
       <div class="max-w-6xl mx-auto px-6 py-12">
@@ -1810,6 +2083,9 @@
       </div>
     </footer>
   </div>
+
+  
+  
  
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="script.js"></script>
